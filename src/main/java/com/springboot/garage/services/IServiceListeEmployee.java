@@ -2,12 +2,12 @@ package com.springboot.garage.services;
 
 import java.util.List;
 
-import com.springboot.garage.model.Employee;
+import com.springboot.garage.model.Employe;
 
 public interface IServiceListeEmployee {
 
-	List<Employee> afficherEmployees();
-	Employee trouverEmployee(Long idEmployee);
-	void ajouterEmployee(Employee employee);
-	void modifierEmployee(Employee employee);
+	List<Employe> afficherEmployees();
+	Employe trouverEmployee(Long idEmployee);
+	void ajouterEmployee(Employe employee);
+	void modifierEmployee(Employe employee);
 }

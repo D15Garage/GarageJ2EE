@@ -2,31 +2,34 @@ package com.springboot.garage.model;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.springboot.garage.enums.Civility;
+import com.springboot.garage.enums.Civilite;
 
 @Entity
 @Table
 public class Client {
 
 	@Id
+	@Column(name="idclient")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	long id;
+	Integer id;
 	
-	Civility civility;
+	Civilite civilite;
 	String nom;
 	String prenom;
 	String adresse;
 	String codePostal;
 	String ville;
 	String telephone;
+	String mobile;
 	
-	Employee employee;
+	Employe employee;
 	List<Devis> devis;
 
 	List<FicheEntretien> fiches;
@@ -34,17 +37,17 @@ public class Client {
 	
 	
 	
-	public long getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Civility getCivility() {
-		return civility;
+	public Civilite getCivilite() {
+		return civilite;
 	}
-	public void setCivility(Civility civility) {
-		this.civility = civility;
+	public void setCivilite(Civilite civilite) {
+		this.civilite = civilite;
 	}
 	public String getNom() {
 		return nom;
@@ -82,10 +85,16 @@ public class Client {
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
-	public Employee getEmployee() {
+	public String getMobile() {
+		return mobile;
+	}
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+	public Employe getEmployee() {
 		return employee;
 	}
-	public void setEmployee(Employee employee) {
+	public void setEmployee(Employe employee) {
 		this.employee = employee;
 	}
 	public List<FicheEntretien> getFiches() {

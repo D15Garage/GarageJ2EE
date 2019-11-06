@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 import com.springboot.garage.enums.Entretien;
 import com.springboot.garage.enums.EtatTache;
-import com.springboot.garage.enums.Priority;
+import com.springboot.garage.enums.Priorite;
 
 @Entity
 @Table
@@ -16,22 +16,22 @@ public class Tache {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	long id;
+	Integer id;
 	
 	FicheEntretien fiche;
 	Entretien entretien;
 	String description;
 	EtatTache etat = EtatTache.En_Cours;
-	Priority priority = Priority.Normal;
+	Priorite priorite = Priorite.Normal;
 	Piece piece;
-	int quantityPiece;
+	int quantitePiece;
 	
 	
 	
-	public long getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public FicheEntretien getFiche() {
@@ -58,11 +58,11 @@ public class Tache {
 	public void setEtat(EtatTache etat) {
 		this.etat = etat;
 	}
-	public Priority getPriority() {
-		return priority;
+	public Priorite getPriorite() {
+		return priorite;
 	}
-	public void setPriority(Priority priority) {
-		this.priority = priority;
+	public void setPriority(Priorite priorite) {
+		this.priorite = priorite;
 	}
 	public Piece getPiece() {
 		return piece;
@@ -70,10 +70,10 @@ public class Tache {
 	public void setPiece(Piece piece) {
 		this.piece = piece;
 	}
-	public int getQuantityPiece() {
-		return quantityPiece;
+	public int getQuantitePiece() {
+		return quantitePiece;
 	}
-	public void setQuantityPiece(int quantityPiece) {
-		this.quantityPiece = quantityPiece;
+	public void setQuantitePiece(int quantitePiece) {
+		this.quantitePiece = quantitePiece;
 	}
 }

@@ -3,6 +3,7 @@ package com.springboot.garage.model;
 import java.sql.Date;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,31 +11,32 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import com.springboot.garage.enums.EtatFicheEntretien;
-import com.springboot.garage.enums.Priority;
+import com.springboot.garage.enums.Priorite;
 
 @Entity
-@Table
+@Table(name="fiche_entretiens")
 public class FicheEntretien {
 
 	@Id
+	@Column(name="idfiche_entretiens")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	long id;
+	Integer id;
 	
 	Client client;
-	Employee employee;
+	Employe employee;
 	Date dateDeCreation;
 	Date dateDeCloture;
 	String description;
 	EtatFicheEntretien etat = EtatFicheEntretien.En_Attente;
-	Priority priorité = Priority.Normal;
+	Priorite priorité = Priorite.Normal;
 	List<Tache> taches;
 	
 	
 	
-	public long getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public Client getClient() {
@@ -43,10 +45,10 @@ public class FicheEntretien {
 	public void setClient(Client client) {
 		this.client = client;
 	}
-	public Employee getEmployee() {
+	public Employe getEmployee() {
 		return employee;
 	}
-	public void setEmployee(Employee employee) {
+	public void setEmployee(Employe employee) {
 		this.employee = employee;
 	}
 	public Date getDateDeCreation() {
@@ -73,10 +75,10 @@ public class FicheEntretien {
 	public void setEtat(EtatFicheEntretien etat) {
 		this.etat = etat;
 	}
-	public Priority getPriorité() {
+	public Priorite getPriorité() {
 		return priorité;
 	}
-	public void setPriorité(Priority priorité) {
+	public void setPriorité(Priorite priorité) {
 		this.priorité = priorité;
 	}
 	public List<Tache> getTaches() {

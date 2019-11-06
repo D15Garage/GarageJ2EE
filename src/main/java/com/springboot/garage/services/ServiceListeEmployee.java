@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.springboot.garage.dao.EmployeeDAO;
-import com.springboot.garage.model.Employee;
+import com.springboot.garage.model.Employe;
 
 @Service
 public class ServiceListeEmployee implements IServiceListeEmployee{
@@ -15,14 +15,14 @@ public class ServiceListeEmployee implements IServiceListeEmployee{
 	EmployeeDAO employeeDao;
 	
 	@Override
-	public List<Employee> afficherEmployees() {
+	public List<Employe> afficherEmployees() {
 		return employeeDao.findAll();
 	}
 
 	@Override
-	public Employee trouverEmployee(Long idEmployee) {
-		List<Employee> employees = employeeDao.findAll();
-		for (Employee e : employees) {
+	public Employe trouverEmployee(Long idEmployee) {
+		List<Employe> employees = employeeDao.findAll();
+		for (Employe e : employees) {
 			if (e.getId() == idEmployee) {
 				return e;
 			}
@@ -31,13 +31,13 @@ public class ServiceListeEmployee implements IServiceListeEmployee{
 	}
 
 	@Override
-	public void ajouterEmployee(Employee employee) {
+	public void ajouterEmployee(Employe employee) {
 		// TODO Auto-generated method stub
 		employeeDao.save(employee);
 	}
 
 	@Override
-	public void modifierEmployee(Employee employee) {
+	public void modifierEmployee(Employe employee) {
 		// TODO Auto-generated method stub
 		employeeDao.save(employee);
 	}

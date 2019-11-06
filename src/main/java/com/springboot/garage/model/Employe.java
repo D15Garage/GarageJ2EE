@@ -8,17 +8,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.springboot.garage.enums.Civility;
+import com.springboot.garage.enums.Civilite;
 
 @Entity
 @Table
-public class Employee {
+public class Employe {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int id;
 	
-	Civility civility;
+	Civilite civility;
 	String nom;
 	String prenom;
 	String identifiant;
@@ -34,10 +34,10 @@ public class Employee {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public Civility getCivility() {
+	public Civilite getCivility() {
 		return civility;
 	}
-	public void setCivility(Civility civility) {
+	public void setCivility(Civilite civility) {
 		this.civility = civility;
 	}
 	public String getNom() {

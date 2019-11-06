@@ -1,6 +1,6 @@
 package com.springboot.garage.controller.form;
 
-import com.springboot.garage.enums.Priority;
+import com.springboot.garage.enums.Priorite;
 
 public class TacheForm {
 
@@ -9,7 +9,7 @@ public class TacheForm {
 	String vehicule;
 	String etat;
 	String details;
-	String priorite = Priority.Normal.toString();
+	String priorite = Priorite.Normal.toString();
 	String fiche;
 	
 	

@@ -2,6 +2,7 @@ package com.springboot.garage.model;
 
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,25 +16,23 @@ import com.springboot.garage.enums.EtatDevis;
 public class Devis {
 
 	@Id
+	@Column(name="iddevis")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	long id;
+	Integer id;
 	
 	String reference;
 	Client client;
-	Employee employee;
+	Employe employe;
 	Date dateDeCreation;
 	Date dateDeCloture;
 	EtatDevis etat;
 	String description;
 	Vehicule vehicule;
-	double quantity;
-	
-	
-	
-	public long getId() {
+	Double quantity;
+	public Integer getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getReference() {
@@ -48,11 +47,11 @@ public class Devis {
 	public void setClient(Client client) {
 		this.client = client;
 	}
-	public Employee getEmployee() {
-		return employee;
+	public Employe getEmploye() {
+		return employe;
 	}
-	public void setEmployee(Employee employee) {
-		this.employee = employee;
+	public void setEmploye(Employe employe) {
+		this.employe = employe;
 	}
 	public Date getDateDeCreation() {
 		return dateDeCreation;
@@ -84,11 +83,15 @@ public class Devis {
 	public void setVehicule(Vehicule vehicule) {
 		this.vehicule = vehicule;
 	}
-	public double getQuantity() {
+	public Double getQuantity() {
 		return quantity;
 	}
-	public void setQuantity(double quantity) {
+	public void setQuantity(Double quantity) {
 		this.quantity = quantity;
 	}
+	
+	
+	
+	
 	
 }
