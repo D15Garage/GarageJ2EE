@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.springboot.garage.controller.form.EmployeeForm;
 import com.springboot.garage.controller.form.PieceForm;
+import com.springboot.garage.model.Piece;
 import com.springboot.garage.services.IServiceListePieces;
 
 @Controller
@@ -29,20 +30,24 @@ public class PieceController {
 		model.addAttribute("listePiece", pieceService.afficherPieces());
 		return "ajouterPiece";
 	}
-	//Reprendre ICI
 	@PostMapping(value = "/ajouterPiece")
-	public String ajouterPiecePost(@ModelAttribute EmployeeForm employeeForm, Model model) {
-		
+	public String ajouterPiecePost(@ModelAttribute PieceForm pieceForm, Model model) {
+		Piece p = new Piece();
+		p.setReference(pieceForm.getReference());
+		p.setDescription(pieceForm.getDescription());
+		p.setQuantity(Integer.valueOf(pieceForm.getQuantity()));
+		//p.setPrix(prix);
+		pieceService.ajouterPiece(p);
 		return null;
 	}
-	
-	@GetMapping(value = "/modifierEmployee")
-	public String modifierEmployeeGet(Model model) {
+	//HERE
+	@GetMapping(value = "/modifierPiece")
+	public String modifierPieceGet(Model model) {
 		
 		return "modifierEmployee";
 	}
-	@PostMapping(value = "/modifierEmployee")
-	public String modifierEmployeePost(@ModelAttribute EmployeeForm employeeForm, @ModelAttribute Long employeeModId, Model model) {
+	@PostMapping(value = "/modifierPiece")
+	public String modifierPiecePost(@ModelAttribute EmployeeForm employeeForm, @ModelAttribute Long employeeModId, Model model) {
 		
 		return null;
 	}
