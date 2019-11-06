@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.springboot.garage.controller.form.EmployeeForm;
 import com.springboot.garage.controller.form.PieceForm;
-import com.springboot.garage.enums.Civility;
-import com.springboot.garage.model.Employee;
 import com.springboot.garage.services.IServiceListePieces;
 
 @Controller

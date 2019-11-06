@@ -17,25 +17,31 @@ public class ServiceListeFiches implements IServiceListeFiches {
 	@Override
 	public List<FicheEntretien> afficherFiches() {
 		// TODO Auto-generated method stub
-		return null;
+		return ficheDAO.findAll();
 	}
 
 	@Override
 	public FicheEntretien trouverFiche(Long idFiche) {
 		// TODO Auto-generated method stub
+		List<FicheEntretien> fiches = ficheDAO.findAll();
+		for (FicheEntretien f : fiches) {
+			if (f.getId() == idFiche) {
+				return f;
+			}
+		}
 		return null;
 	}
 
 	@Override
 	public void ajouterFiche(FicheEntretien fiche) {
 		// TODO Auto-generated method stub
-
+		ficheDAO.save(fiche);
 	}
 
 	@Override
 	public void modifierFiche(FicheEntretien fiche) {
 		// TODO Auto-generated method stub
-
+		ficheDAO.save(fiche);
 	}
 
 }

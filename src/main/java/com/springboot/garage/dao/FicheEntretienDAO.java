@@ -2,6 +2,8 @@ package com.springboot.garage.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface FicheEntretienDAO extends JpaRepository<FicheEntretienDAO, Long> {
+import com.springboot.garage.model.FicheEntretien;
+
+public interface FicheEntretienDAO extends JpaRepository<FicheEntretien, Long> {
 
 }
