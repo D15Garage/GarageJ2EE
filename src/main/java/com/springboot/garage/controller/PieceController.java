@@ -34,34 +34,18 @@ public class PieceController {
 	//Reprendre ICI
 	@PostMapping(value = "/ajouterPiece")
 	public String ajouterPiecePost(@ModelAttribute EmployeeForm employeeForm, Model model) {
-		Employee e = new Employee();
-		e.setCivility(Civility.valueOf(employeeForm.getCivility()));
-		e.setNom(employeeForm.getNom());
-		e.setPrenom(employeeForm.getPrenom());
-		e.setIdentifiant(employeeForm.getIdentifiant());
-		e.setMotDePasse(employeeForm.getMotDePasse());
-		e.setRoles(employeeForm.getRoles());
-		employeeService.ajouterEmployee(e);
+		
 		return null;
 	}
 	
 	@GetMapping(value = "/modifierEmployee")
 	public String modifierEmployeeGet(Model model) {
-		model.addAttribute("employeeForm", new EmployeeForm());
-		model.addAttribute("employeeModId", new Long(0));		
-		model.addAttribute("listeEmployees", employeeService.afficherEmployees());
+		
 		return "modifierEmployee";
 	}
 	@PostMapping(value = "/modifierEmployee")
 	public String modifierEmployeePost(@ModelAttribute EmployeeForm employeeForm, @ModelAttribute Long employeeModId, Model model) {
-		Employee e = employeeService.trouverEmployee(employeeModId);
-		e.setCivility(Civility.valueOf(employeeForm.getCivility()));
-		e.setNom(employeeForm.getNom());
-		e.setPrenom(employeeForm.getPrenom());
-		e.setIdentifiant(employeeForm.getIdentifiant());
-		e.setMotDePasse(employeeForm.getMotDePasse());
-		e.setRoles(employeeForm.getRoles());
-		employeeService.modifierEmployee(e);
+		
 		return null;
 	}
 }
