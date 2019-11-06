@@ -1,6 +1,8 @@
 package com.springboot.garage.controller.form;
 
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 
 public class ClientForm {
@@ -8,11 +10,21 @@ public class ClientForm {
 	@Pattern(regexp = "Mr|Mme")
 	String civility;
 	
+	@NotNull
 	String nom;
+	@NotNull
 	String prenom;
+	@NotNull
 	String adresse;
+	
+	@NotNull
+	@Size(min=5, max=5)
 	String codePostal;
+	@NotNull
 	String ville;
+	
+	@NotNull
+	@Size(min=10, max=10)
 	String telephone;
 	
 	

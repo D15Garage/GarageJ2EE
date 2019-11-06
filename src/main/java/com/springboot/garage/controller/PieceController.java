@@ -44,7 +44,7 @@ public class PieceController {
 	@GetMapping(value = "/modifierPiece")
 	public String modifierPieceGet(Model model) {
 		
-		return "modifierEmployee";
+		return "modifierPiece";
 	}
 	@PostMapping(value = "/modifierPiece")
 	public String modifierPiecePost(@ModelAttribute EmployeeForm employeeForm, @ModelAttribute Long employeeModId, Model model) {

@@ -1,10 +1,14 @@
 package com.springboot.garage.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.springboot.garage.controller.form.EmployeeForm;
@@ -31,7 +35,7 @@ public class EmployeeController {
 		return "ajouterEmployee";
 	}
 	@PostMapping(value = "/ajouterEmployee")
-	public String ajouterEmployeePost(@ModelAttribute EmployeeForm employeeForm, Model model) {
+	public String ajouterEmployeePost(@Valid @ModelAttribute EmployeeForm employeeForm, BindingResult bindingResult) {
 		Employee e = new Employee();
 		e.setCivility(Civility.valueOf(employeeForm.getCivility()));
 		e.setNom(employeeForm.getNom());
@@ -43,23 +47,22 @@ public class EmployeeController {
 		return null;
 	}
 	
-	@GetMapping(value = "/modifierEmployee")
-	public String modifierEmployeeGet(Model model) {
-		model.addAttribute("employeeForm", new EmployeeForm());
-		model.addAttribute("employeeModId", new Long(0));		
-		model.addAttribute("listeEmployees", employeeService.afficherEmployees());
+	@GetMapping(value = "/modifierEmployee/{id}")
+	public String modifierEmployeeGet(@PathVariable final Long id, Model model) {
+		Employee e = employeeService.trouverEmployee(id);
+		EmployeeForm employeeForm = new EmployeeForm();
+		employeeForm.setCivility(e.getCivility().toString());
+		employeeForm.setNom(e.getNom());
+		employeeForm.setPrenom(e.getPrenom());
+		employeeForm.setIdentifiant(e.getIdentifiant());
+		employeeForm.setMotDePasse(e.getMotDePasse());
+		employeeForm.setRoles(e.getRoles());
+		model.addAttribute("employeeForm", employeeForm);
 		return "modifierEmployee";
 	}
 	@PostMapping(value = "/modifierEmployee")
-	public String modifierEmployeePost(@ModelAttribute EmployeeForm employeeForm, @ModelAttribute Long employeeModId, Model model) {
-		Employee e = employeeService.trouverEmployee(employeeModId);
-		e.setCivility(Civility.valueOf(employeeForm.getCivility()));
-		e.setNom(employeeForm.getNom());
-		e.setPrenom(employeeForm.getPrenom());
-		e.setIdentifiant(employeeForm.getIdentifiant());
-		e.setMotDePasse(employeeForm.getMotDePasse());
-		e.setRoles(employeeForm.getRoles());
-		employeeService.modifierEmployee(e);
+	public String modifierEmployeePost(@Valid @ModelAttribute EmployeeForm employeeForm, BindingResult bindingResult, @ModelAttribute Long employeeModId) {
+		//Here
 		return null;
 	}
 	

@@ -1,10 +1,14 @@
 package com.springboot.garage.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.springboot.garage.controller.form.ClientForm;
@@ -31,7 +35,7 @@ public class ClientController {
 		return "ajouterClient";
 	}
 	@PostMapping(value = "/ajouterClient")
-	public String ajouterClientPost(@ModelAttribute ClientForm clientForm, Model model) {
+	public String ajouterClientPost(@Valid @ModelAttribute ClientForm clientForm, Model model) {
 		Client c = new Client();
 		c.setCivility(Civility.valueOf(clientForm.getCivility()));
 		c.setNom(clientForm.getNom());
@@ -44,25 +48,17 @@ public class ClientController {
 		return null;
 	}
 	
-	@GetMapping(value = "/modifierClient")
-	public String modifierClientGet(Model model) {
-		model.addAttribute("clientForm", new ClientForm());
-		model.addAttribute("clientModId", new Long(0));
-		model.addAttribute("listeClients", clientService.afficherClients());
+	@GetMapping(value = "/modifierClient/{id}")
+	public String modifierClientGet(@PathVariable Long id, Model model) {
+		Client c = clientService.trouverClient(id);
+		ClientForm clientForm = new ClientForm();
+		
+		model.addAttribute("clientForm", clientForm);
 		return "modifierClient";
 	}
 	@PostMapping(value = "/modifierClient")
-	public String modifierClientPost(@ModelAttribute ClientForm clientForm, @ModelAttribute Long clientModId, Model model) {
-		Client c = clientService.trouverClient(clientModId);
-		c.setCivility(Civility.valueOf(clientForm.getCivility()));
-		c.setNom(clientForm.getNom());
-		c.setPrenom(clientForm.getPrenom());
-		c.setAdresse(clientForm.getAdresse());
-		c.setCodePostal(clientForm.getCodePostal());
-		c.setVille(clientForm.getVille());
-		c.setTelephone(clientForm.getTelephone());
-		clientService.modifierClient(c);
+	public String modifierClientPost(@Valid @ModelAttribute ClientForm clientForm, BindingResult bindingResult) {
+		
 		return null;
 	}
-	
 }
