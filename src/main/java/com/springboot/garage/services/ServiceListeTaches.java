@@ -21,7 +21,7 @@ public class ServiceListeTaches implements IServiceListeTaches{
 	}
 
 	@Override
-	public Tache trouverTache(Long idTache) {
+	public Tache trouverTache(Integer idTache) {
 		// TODO Auto-generated method stub
 		List<Tache> taches = tacheDao.findAll();
 		for (Tache t : taches) {

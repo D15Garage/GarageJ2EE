@@ -7,7 +7,7 @@ import com.springboot.garage.model.Employee;
 public interface IServiceListeEmployee {
 
 	List<Employee> afficherEmployees();
-	Employee trouverEmployee(Long idEmployee);
+	Employee trouverEmployee(Integer id);
 	void ajouterEmployee(Employee employee);
 	void modifierEmployee(Employee employee);
 }

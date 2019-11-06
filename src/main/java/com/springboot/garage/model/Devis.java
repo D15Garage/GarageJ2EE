@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.springboot.garage.enums.EtatDevis;
@@ -19,13 +21,24 @@ public class Devis {
 	long id;
 	
 	String reference;
+	
+	@ManyToOne
+	@JoinColumn(name = "client_idclient")
 	Client client;
+	
+	@ManyToOne
+	@JoinColumn(name = "employe_idemploye")
 	Employee employee;
+	
 	Date dateDeCreation;
 	Date dateDeCloture;
 	EtatDevis etat;
 	String description;
+	
+	@ManyToOne
+	@JoinColumn(name = "vehicules_idvehicules")
 	Vehicule vehicule;
+	
 	double quantity;
 	
 	

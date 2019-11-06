@@ -36,7 +36,7 @@ public class FicheEntretienController {
 	}
 	
 	@GetMapping(value = "/modifierFiche/{id}")
-	public String modifierFicheGet(@PathVariable Long id, Model model) {
+	public String modifierFicheGet(@PathVariable Integer id, Model model) {
 		return "modifierFiche";
 	}
 	@PostMapping(value = "/modifierFiche")

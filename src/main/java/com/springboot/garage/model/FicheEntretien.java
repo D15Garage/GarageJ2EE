@@ -1,12 +1,14 @@
 package com.springboot.garage.model;
 
 import java.sql.Date;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.springboot.garage.enums.EtatFicheEntretien;
@@ -20,14 +22,19 @@ public class FicheEntretien {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	long id;
 	
+	@ManyToOne
+	@JoinColumn(name = "client_idclient")
 	Client client;
-	Employee employee;
+	
 	Date dateDeCreation;
 	Date dateDeCloture;
 	String description;
 	EtatFicheEntretien etat = EtatFicheEntretien.En_Attente;
 	Priority priorité = Priority.Normal;
-	List<Tache> taches;
+	
+	@OneToOne
+	@JoinColumn(name = "tache_idtaches")
+	Tache taches;
 	
 	
 	
@@ -42,12 +49,6 @@ public class FicheEntretien {
 	}
 	public void setClient(Client client) {
 		this.client = client;
-	}
-	public Employee getEmployee() {
-		return employee;
-	}
-	public void setEmployee(Employee employee) {
-		this.employee = employee;
 	}
 	public Date getDateDeCreation() {
 		return dateDeCreation;
@@ -79,10 +80,10 @@ public class FicheEntretien {
 	public void setPriorité(Priority priorité) {
 		this.priorité = priorité;
 	}
-	public List<Tache> getTaches() {
+	public Tache getTaches() {
 		return taches;
 	}
-	public void setTaches(List<Tache> taches) {
+	public void setTaches(Tache taches) {
 		this.taches = taches;
 	}
 }

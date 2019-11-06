@@ -42,13 +42,12 @@ public class EmployeeController {
 		e.setPrenom(employeeForm.getPrenom());
 		e.setIdentifiant(employeeForm.getIdentifiant());
 		e.setMotDePasse(employeeForm.getMotDePasse());
-		e.setRoles(employeeForm.getRoles());
 		employeeService.ajouterEmployee(e);
 		return null;
 	}
 	
 	@GetMapping(value = "/modifierEmployee/{id}")
-	public String modifierEmployeeGet(@PathVariable final Long id, Model model) {
+	public String modifierEmployeeGet(@PathVariable final Integer id, Model model) {
 		Employee e = employeeService.trouverEmployee(id);
 		EmployeeForm employeeForm = new EmployeeForm();
 		employeeForm.setCivility(e.getCivility().toString());
@@ -56,12 +55,11 @@ public class EmployeeController {
 		employeeForm.setPrenom(e.getPrenom());
 		employeeForm.setIdentifiant(e.getIdentifiant());
 		employeeForm.setMotDePasse(e.getMotDePasse());
-		employeeForm.setRoles(e.getRoles());
 		model.addAttribute("employeeForm", employeeForm);
 		return "modifierEmployee";
 	}
 	@PostMapping(value = "/modifierEmployee")
-	public String modifierEmployeePost(@Valid @ModelAttribute EmployeeForm employeeForm, BindingResult bindingResult, @ModelAttribute Long employeeModId) {
+	public String modifierEmployeePost(@Valid @ModelAttribute EmployeeForm employeeForm, BindingResult bindingResult, @ModelAttribute Integer employeeModId) {
 		//Here
 		return null;
 	}

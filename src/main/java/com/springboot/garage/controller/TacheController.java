@@ -45,7 +45,7 @@ public class TacheController {
 		return "modifierTache";
 	}
 	@PostMapping(value = "/modifierTache")
-	public String modifierTachePost(@ModelAttribute TacheForm tacheForm, @ModelAttribute long tacheModId, Model model) {
+	public String modifierTachePost(@ModelAttribute TacheForm tacheForm, @ModelAttribute Integer tacheModId, Model model) {
 		Tache t = tacheService.trouverTache(tacheModId);
 		
 		tacheService.modifierTache(t);

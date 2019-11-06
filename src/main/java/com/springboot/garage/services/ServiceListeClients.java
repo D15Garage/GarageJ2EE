@@ -20,7 +20,7 @@ public class ServiceListeClients implements IServiceListeClients {
 	}
 
 	@Override
-	public Client trouverClient(Long idClient) {
+	public Client trouverClient(Integer idClient) {
 		List<Client> clients = clientDao.findAll();
 		for (Client c : clients) {
 			if (c.getId() == idClient) {

@@ -27,7 +27,7 @@ public class ClientController {
 		model.addAttribute("listeClients", clientService.afficherClients());
 		return "afficherClients";
 	}
-	
+
 	@GetMapping(value = "/ajouterClient")
 	public String ajouterClientGet(Model model) {
 		model.addAttribute("clientForm", new ClientForm());
@@ -47,9 +47,9 @@ public class ClientController {
 		clientService.ajouterClient(c);
 		return null;
 	}
-	
+
 	@GetMapping(value = "/modifierClient/{id}")
-	public String modifierClientGet(@PathVariable Long id, Model model) {
+	public String modifierClientGet(@PathVariable Integer id, Model model) {
 		Client c = clientService.trouverClient(id);
 		ClientForm clientForm = new ClientForm();
 		
@@ -61,4 +61,5 @@ public class ClientController {
 		
 		return null;
 	}
+
 }

@@ -36,7 +36,7 @@ public class FactureEntretienController {
 	}
 	
 	@GetMapping(value = "/modifierFactureEntretien/{id}")
-	public String modifierFactureEntretienGet(@PathVariable Long id, Model model) {
+	public String modifierFactureEntretienGet(@PathVariable Integer id, Model model) {
 		return "modifierFactureEntretien";
 	}
 	@PostMapping(value = "/modifierFactureEntretien")

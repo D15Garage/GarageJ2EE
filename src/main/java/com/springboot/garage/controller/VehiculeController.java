@@ -36,7 +36,7 @@ public class VehiculeController {
 	}
 	
 	@GetMapping(value = "/modifierVehicule/{id}")
-	public String modifiervehiculeGet(@PathVariable Long id, Model model) {
+	public String modifiervehiculeGet(@PathVariable Integer id, Model model) {
 		return "modifierVehicule";
 	}
 	@PostMapping(value = "/modifierVehicule")

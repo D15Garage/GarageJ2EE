@@ -1,11 +1,14 @@
 package com.springboot.garage.model;
 
-import java.util.List;
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.springboot.garage.enums.Civility;
@@ -16,9 +19,12 @@ public class Client {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	long id;
+	Integer id;
 	
+	@Enumerated(EnumType.STRING)
+	@Column(columnDefinition = "enum('Mr', 'Mme')", name = "civilite")
 	Civility civility;
+	
 	String nom;
 	String prenom;
 	String adresse;
@@ -26,18 +32,16 @@ public class Client {
 	String ville;
 	String telephone;
 	
+	@ManyToOne
+	@JoinColumn(name = "employe_idemploye")
 	Employee employee;
-	List<Devis> devis;
-
-	List<FicheEntretien> fiches;
-	List<FactureEntretien> factures;
 	
 	
 	
-	public long getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public Civility getCivility() {
@@ -87,24 +91,6 @@ public class Client {
 	}
 	public void setEmployee(Employee employee) {
 		this.employee = employee;
-	}
-	public List<FicheEntretien> getFiches() {
-		return fiches;
-	}
-	public void setFiches(List<FicheEntretien> fiches) {
-		this.fiches = fiches;
-	}
-	public List<Devis> getDevis() {
-		return devis;
-	}
-	public void setDevis(List<Devis> devis) {
-		this.devis = devis;
-	}
-	public List<FactureEntretien> getFactures() {
-		return factures;
-	}
-	public void setFactures(List<FactureEntretien> factures) {
-		this.factures = factures;
 	}
 	
 }

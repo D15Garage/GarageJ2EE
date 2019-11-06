@@ -1,7 +1,5 @@
 package com.springboot.garage.model;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,8 +21,6 @@ public class Employee {
 	String prenom;
 	String identifiant;
 	String motDePasse;
-	
-	List<String> roles;
 	
 	
 	
@@ -63,11 +59,5 @@ public class Employee {
 	}
 	public void setMotDePasse(String motDePasse) {
 		this.motDePasse = motDePasse;
-	}
-	public List<String> getRoles() {
-		return roles;
-	}
-	public void setRoles(List<String> roles) {
-		this.roles = roles;
 	}
 }

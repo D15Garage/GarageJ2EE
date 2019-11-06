@@ -1,9 +1,12 @@
 package com.springboot.garage.model;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.springboot.garage.enums.Entretien;
@@ -18,12 +21,15 @@ public class Tache {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	long id;
 	
-	FicheEntretien fiche;
 	Entretien entretien;
 	String description;
 	EtatTache etat = EtatTache.En_Cours;
 	Priority priority = Priority.Normal;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "pieces_idpieces")
 	Piece piece;
+	
 	int quantityPiece;
 	
 	
@@ -33,12 +39,6 @@ public class Tache {
 	}
 	public void setId(long id) {
 		this.id = id;
-	}
-	public FicheEntretien getFiche() {
-		return fiche;
-	}
-	public void setFiche(FicheEntretien fiche) {
-		this.fiche = fiche;
 	}
 	public Entretien getEntretien() {
 		return entretien;

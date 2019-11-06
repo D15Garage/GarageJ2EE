@@ -7,7 +7,7 @@ import com.springboot.garage.model.Client;
 public interface IServiceListeClients {
 	
 	List<Client> afficherClients();
-	Client trouverClient(Long idClient);
+	Client trouverClient(Integer id);
 	void ajouterClient(Client client);
 	void modifierClient(Client client);
 	

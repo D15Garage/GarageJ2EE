@@ -7,7 +7,7 @@ import com.springboot.garage.model.Vehicule;
 public interface IServiceListeVehicules {
 
 	List<Vehicule> afficherVehicules();
-	Vehicule trouverVehicule(Long idVehicule);
+	Vehicule trouverVehicule(Integer idVehicule);
 	void ajouterVehicule(Vehicule vehicule);
 	void modifierVehicule(Vehicule vehicule);
 }

@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.springboot.garage.controller.form.ClientForm;
 import com.springboot.garage.controller.form.DevisForm;
-import com.springboot.garage.enums.Civility;
-import com.springboot.garage.model.Client;
 import com.springboot.garage.services.IServiceListeDevis;
 
 @Controller
@@ -41,7 +39,7 @@ public class DevisController {
 	}
 	
 	@GetMapping(value = "/modifierDevis/{id}")
-	public String modifierDevisGet(@PathVariable Long id, Model model) {
+	public String modifierDevisGet(@PathVariable Integer id, Model model) {
 		return "modifierDevis";
 	}
 	@PostMapping(value = "/modifierDevis")

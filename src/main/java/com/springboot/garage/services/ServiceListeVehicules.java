@@ -20,7 +20,7 @@ public class ServiceListeVehicules implements IServiceListeVehicules {
 	}
 
 	@Override
-	public Vehicule trouverVehicule(Long idVehicule) {
+	public Vehicule trouverVehicule(Integer idVehicule) {
 		List<Vehicule> vehicules = vehiculeDAO.findAll();
 		for (Vehicule v : vehicules) {
 			if (v.getId() == idVehicule) {

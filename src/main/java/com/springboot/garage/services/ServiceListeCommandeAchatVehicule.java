@@ -22,10 +22,10 @@ public class ServiceListeCommandeAchatVehicule implements IServiceListeCommandeA
 	@Override
 	public CommandeAchatVehicule trouverCommande(Long idCommande) {
 		// TODO Auto-generated method stub
-		List<CommandeAchatVehicule> commandes = commandeDAO.findAll();
-		for (CommandeAchatVehicule c : commandes) {
-			//here
-		}
+		//List<CommandeAchatVehicule> commandes = commandeDAO.findAll();
+//		for (CommandeAchatVehicule c : commandes) {
+		//
+//		}
 		return null;
 	}
 
