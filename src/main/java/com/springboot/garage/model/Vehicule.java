@@ -2,6 +2,7 @@ package com.springboot.garage.model;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,16 +15,17 @@ import javax.persistence.Table;
 public class Vehicule {
 
 	@Id
+	@Column(name="idvehicules")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Integer id;
 	
 	String reference;
 	String marque;
 	String modele;
-	Integer annee;
+	String annee;
 	String couleur;
 	Integer quantite;
-	Double prixUnitaireHT;
+	Double prixUnitaireHt;
 	
 	
 	
@@ -51,10 +53,10 @@ public class Vehicule {
 	public void setModele(String modele) {
 		this.modele = modele;
 	}
-	public Integer getAnnee() {
+	public String getAnnee() {
 		return annee;
 	}
-	public void setAnnee(Integer annee) {
+	public void setAnnee(String annee) {
 		this.annee = annee;
 	}
 	public String getCouleur() {
@@ -69,11 +71,11 @@ public class Vehicule {
 	public void setQuantite(Integer quantite) {
 		this.quantite = quantite;
 	}
-	public Double getPrix() {
-		return prixUnitaireHT;
+	public Double getPrixUnitaireHt() {
+		return prixUnitaireHt;
 	}
-	public void setPrix(Double prixUnitaireHT) {
-		this.prixUnitaireHT = prixUnitaireHT;
+	public void setPrixUnitaireHt(Double prixUnitaireHt) {
+		this.prixUnitaireHt = prixUnitaireHt;
 	}
 	
 }

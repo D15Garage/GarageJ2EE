@@ -22,6 +22,8 @@ public class FactureVehicule {
 	String numeroFacture;
 	Date dateFacturation;
 	Double total;
+	
+	@Column(name="taux_tva")
 	Double tauxTVA;
 
 	@OneToOne

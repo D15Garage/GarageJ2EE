@@ -1,9 +1,8 @@
 package com.springboot.garage.enums;
 
 public enum EtatFicheEntretien {
-En_Attente,
 Refusee,
 En_Cours,
-Terminee,
+En_Attente,
 Cloturee
 }

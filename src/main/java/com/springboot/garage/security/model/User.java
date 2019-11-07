@@ -11,8 +11,7 @@ import javax.persistence.Table;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-@Entity
-@Table
+
 public class User implements UserDetails {
 
 	@Id

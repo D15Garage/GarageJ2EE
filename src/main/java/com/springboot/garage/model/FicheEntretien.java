@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,13 +27,19 @@ public class FicheEntretien {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Integer id;
 	
-	Date dateDeCreation;
-	Date dateDeCloture;
+	Date dateCreation;
+	Date dateCloture;
 	String description;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(columnDefinition = "enum('Refusee', 'En attente', 'En cours', 'Cloturee')", name = "etat")
 	EtatFicheEntretien etat = EtatFicheEntretien.En_Attente;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(columnDefinition = "enum('Non prioritaire', 'Normal', 'Urgent', 'Tres urgent')", name = "niveau_de_priorite")
 	Priorite priorite = Priorite.Normal;
 
-	Double nombreHeures;
+	Double nombreHeure;
 	Double tauxHoraire;
 	
 	@ManyToOne
@@ -39,7 +47,6 @@ public class FicheEntretien {
 	Client client;
 	
 
-	
 	public Integer getId() {
 		return id;
 	}
@@ -52,17 +59,17 @@ public class FicheEntretien {
 	public void setClient(Client client) {
 		this.client = client;
 	}
-	public Date getDateDeCreation() {
-		return dateDeCreation;
+	public Date getDateCreation() {
+		return dateCreation;
 	}
-	public void setDateDeCreation(Date dateDeCreation) {
-		this.dateDeCreation = dateDeCreation;
+	public void setDateCreation(Date dateCreation) {
+		this.dateCreation = dateCreation;
 	}
-	public Date getDateDeCloture() {
-		return dateDeCloture;
+	public Date getDateCloture() {
+		return dateCloture;
 	}
-	public void setDateDeCloture(Date dateDeCloture) {
-		this.dateDeCloture = dateDeCloture;
+	public void setDateCloture(Date dateCloture) {
+		this.dateCloture = dateCloture;
 	}
 	public String getDescription() {
 		return description;
@@ -81,6 +88,18 @@ public class FicheEntretien {
 	}
 	public void setPriorite(Priorite priorite) {
 		this.priorite = priorite;
+	}
+	public Double getNombreHeure() {
+		return nombreHeure;
+	}
+	public void setNombreHeure(Double nombreHeure) {
+		this.nombreHeure = nombreHeure;
+	}
+	public Double getTauxHoraire() {
+		return tauxHoraire;
+	}
+	public void setTauxHoraire(Double tauxHoraire) {
+		this.tauxHoraire = tauxHoraire;
 	}
 	
 }

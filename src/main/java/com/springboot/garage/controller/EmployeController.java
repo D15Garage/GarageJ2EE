@@ -41,7 +41,7 @@ public class EmployeController {
 		e.setCivilite(Civilite.valueOf(employeForm.getCivilite()));
 		e.setNom(employeForm.getNom());
 		e.setPrenom(employeForm.getPrenom());
-		e.setIdentifiant(employeForm.getIdentifiant());
+		e.setNumeroEmploye(employeForm.getIdentifiant());
 		e.setMotDePasse(employeForm.getMotDePasse());
 		employeService.ajouterEmploye(e);
 		return null;
@@ -54,7 +54,7 @@ public class EmployeController {
 		employeForm.setCivilite(e.getCivilite().toString());
 		employeForm.setNom(e.getNom());
 		employeForm.setPrenom(e.getPrenom());
-		employeForm.setIdentifiant(e.getIdentifiant());
+		employeForm.setIdentifiant(e.getNumeroEmploye());
 		employeForm.setMotDePasse(e.getMotDePasse());
 		model.addAttribute("employeForm", employeForm);
 		return "modifierEmploye";
@@ -66,7 +66,7 @@ public class EmployeController {
 		e.setCivilite(Civilite.valueOf(employeForm.getCivilite()));
 		e.setNom(employeForm.getNom());
 		e.setPrenom(employeForm.getPrenom());
-		e.setIdentifiant(employeForm.getIdentifiant());
+		e.setNumeroEmploye(employeForm.getIdentifiant());
 		e.setMotDePasse(employeForm.getMotDePasse());
 		//e.setRoles(employeForm.getRoles());
 		employeService.modifierEmploye(e);

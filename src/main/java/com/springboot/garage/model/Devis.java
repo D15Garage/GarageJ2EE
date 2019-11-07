@@ -4,6 +4,9 @@ import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,13 +25,13 @@ public class Devis {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Integer id;
 	
-	String reference;
-
-	Date dateDeCreation;
-	Date dateDeCloture;
+	Date dateCreation;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(columnDefinition = "enum('Valide', 'Annule', 'En attente')", name = "etat")
 	EtatDevis etat;
-	String description;
-	Double quantite;
+	
+	Integer quantite;
 	
 	@ManyToOne
 	@JoinColumn(name = "employe_idemploye")
@@ -49,12 +52,6 @@ public class Devis {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getReference() {
-		return reference;
-	}
-	public void setReference(String reference) {
-		this.reference = reference;
-	}
 	public Client getClient() {
 		return client;
 	}
@@ -67,17 +64,11 @@ public class Devis {
 	public void setEmploye(Employe employe) {
 		this.employe = employe;
 	}
-	public Date getDateDeCreation() {
-		return dateDeCreation;
+	public Date getDateCreation() {
+		return dateCreation;
 	}
-	public void setDateDeCreation(Date dateDeCreation) {
-		this.dateDeCreation = dateDeCreation;
-	}
-	public Date getDateDeCloture() {
-		return dateDeCloture;
-	}
-	public void setDateDeCloture(Date dateDeCloture) {
-		this.dateDeCloture = dateDeCloture;
+	public void setDateCreation(Date dateCreation) {
+		this.dateCreation = dateCreation;
 	}
 	public EtatDevis getEtat() {
 		return etat;
@@ -85,22 +76,16 @@ public class Devis {
 	public void setEtat(EtatDevis etat) {
 		this.etat = etat;
 	}
-	public String getDescription() {
-		return description;
-	}
-	public void setDescription(String description) {
-		this.description = description;
-	}
 	public Vehicule getVehicule() {
 		return vehicule;
 	}
 	public void setVehicule(Vehicule vehicule) {
 		this.vehicule = vehicule;
 	}
-	public Double getQuantite() {
+	public Integer getQuantite() {
 		return quantite;
 	}
-	public void setQuantite(Double quantite) {
+	public void setQuantite(Integer quantite) {
 		this.quantite = quantite;
 	}
 	
