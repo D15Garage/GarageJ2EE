@@ -2,6 +2,7 @@ package com.springboot.garage.model;
 
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,46 +12,51 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table
+@Table(name="facture_pieces")
 public class FactureEntretien {
 
 	@Id
+	@Column(name="idfacture_pieces")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	long id;
-	
-	String reference;
-	Date dateDeFacturation;
-	double prix;
-	
+	Integer id;
+	String numeroFacture;
+	Date dateFacturation;
+	Double total;
+	Double tauxTVA;
+
 	@OneToOne
 	@JoinColumn(name = "fiche_entretiens_idfiche_entretiens")
 	FicheEntretien fiche;
 	
-	
-	
-	public long getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getReference() {
-		return reference;
+	public String getNumeroFacture() {
+		return numeroFacture;
 	}
-	public void setReference(String reference) {
-		this.reference = reference;
+	public void setNumeroFacture(String numeroFacture) {
+		this.numeroFacture = numeroFacture;
 	}
-	public Date getDateDeFacturation() {
-		return dateDeFacturation;
+	public Date getDateFacturation() {
+		return dateFacturation;
 	}
-	public void setDateDeFacturation(Date dateDeFacturation) {
-		this.dateDeFacturation = dateDeFacturation;
+	public void setDateFacturation(Date dateFacturation) {
+		this.dateFacturation = dateFacturation;
 	}
-	public double getPrix() {
-		return prix;
+	public double getTotal() {
+		return total;
 	}
-	public void setPrix(double prix) {
-		this.prix = prix;
+	public void setTotal(Double total) {
+		this.total = total;
+	}
+	public Double getTauxTVA() {
+		return tauxTVA;
+	}
+	public void setTauxTVA(Double tauxTVA) {
+		this.tauxTVA = tauxTVA;
 	}
 	public FicheEntretien getFiche() {
 		return fiche;
@@ -58,4 +64,6 @@ public class FactureEntretien {
 	public void setFiche(FicheEntretien fiche) {
 		this.fiche = fiche;
 	}
+	
+	
 }

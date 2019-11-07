@@ -1,5 +1,6 @@
 package com.springboot.garage.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,20 +12,21 @@ import javax.persistence.Table;
 public class Piece {
 
 	@Id
+	@Column(name="idpiece")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	long id;
+	Integer id;
 	
 	String reference;
-	int quantity;
-	double prix;
+	int quantite;
+	Double prix;
 	String description;
 	
 	
 	
-	public long getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getReference() {
@@ -33,16 +35,16 @@ public class Piece {
 	public void setReference(String reference) {
 		this.reference = reference;
 	}
-	public int getQuantity() {
-		return quantity;
+	public int getQuantite() {
+		return quantite;
 	}
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
+	public void setQuantite(int quantite) {
+		this.quantite = quantite;
 	}
-	public double getPrix() {
+	public Double getPrix() {
 		return prix;
 	}
-	public void setPrix(double prix) {
+	public void setPrix(Double prix) {
 		this.prix = prix;
 	}
 	public String getDescription() {

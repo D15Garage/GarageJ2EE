@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.springboot.garage.controller.form.ClientForm;
-import com.springboot.garage.enums.Civility;
+import com.springboot.garage.enums.Civilite;
 import com.springboot.garage.model.Client;
 import com.springboot.garage.services.IServiceListeClients;
 
@@ -37,7 +37,7 @@ public class ClientController {
 	@PostMapping(value = "/ajouterClient")
 	public String ajouterClientPost(@Valid @ModelAttribute ClientForm clientForm, Model model) {
 		Client c = new Client();
-		c.setCivility(Civility.valueOf(clientForm.getCivility()));
+		c.setCivility(Civilite.valueOf(clientForm.getCivility()));
 		c.setNom(clientForm.getNom());
 		c.setPrenom(clientForm.getPrenom());
 		c.setAdresse(clientForm.getAdresse());

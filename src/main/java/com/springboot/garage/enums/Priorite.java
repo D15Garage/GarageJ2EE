@@ -1,6 +1,6 @@
 package com.springboot.garage.enums;
 
-public enum Priority {
+public enum Priorite {
 Non_Prioritaire,
 Normal,
 Urgent,

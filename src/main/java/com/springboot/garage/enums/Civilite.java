@@ -1,6 +1,6 @@
 package com.springboot.garage.enums;
 
-public enum Civility {
+public enum Civilite {
 Mr,
 Mme
 }

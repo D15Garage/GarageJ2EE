@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.springboot.garage.controller.form.EmployeeForm;
-import com.springboot.garage.enums.Civility;
-import com.springboot.garage.model.Employee;
+import com.springboot.garage.enums.Civilite;
+import com.springboot.garage.model.Employe;
 import com.springboot.garage.services.IServiceListeEmployee;
 
 @Controller
@@ -35,9 +35,10 @@ public class EmployeeController {
 		return "ajouterEmployee";
 	}
 	@PostMapping(value = "/ajouterEmployee")
+
 	public String ajouterEmployeePost(@Valid @ModelAttribute EmployeeForm employeeForm, BindingResult bindingResult) {
-		Employee e = new Employee();
-		e.setCivility(Civility.valueOf(employeeForm.getCivility()));
+		Employe e = new Employe();
+		e.setCivility(Civilite.valueOf(employeeForm.getCivility()));
 		e.setNom(employeeForm.getNom());
 		e.setPrenom(employeeForm.getPrenom());
 		e.setIdentifiant(employeeForm.getIdentifiant());
@@ -61,6 +62,14 @@ public class EmployeeController {
 	@PostMapping(value = "/modifierEmployee")
 	public String modifierEmployeePost(@Valid @ModelAttribute EmployeeForm employeeForm, BindingResult bindingResult, @ModelAttribute Integer employeeModId) {
 		//Here
+		Employe e = employeeService.trouverEmployee(employeeModId);
+		e.setCivility(Civilite.valueOf(employeeForm.getCivility()));
+		e.setNom(employeeForm.getNom());
+		e.setPrenom(employeeForm.getPrenom());
+		e.setIdentifiant(employeeForm.getIdentifiant());
+		e.setMotDePasse(employeeForm.getMotDePasse());
+		e.setRoles(employeeForm.getRoles());
+		employeeService.modifierEmployee(e);
 		return null;
 	}
 	
