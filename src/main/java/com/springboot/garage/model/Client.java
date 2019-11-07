@@ -31,7 +31,7 @@ public class Client {
 	String nom;
 	String prenom;
 	String adresse;
-	//String codePostal;
+	String codePostal;
 	String ville;
 	String telephone;
 	String mobile;
@@ -78,12 +78,12 @@ public class Client {
 	public void setAdresse(String adresse) {
 		this.adresse = adresse;
 	}
-//	public String getCodePostal() {
-//		return codePostal;
-//	}
-//	public void setCodePostal(String codePostal) {
-//		this.codePostal = codePostal;
-//	}
+	public String getCodePostal() {
+		return codePostal;
+	}
+	public void setCodePostal(String codePostal) {
+		this.codePostal = codePostal;
+	}
 	public String getVille() {
 		return ville;
 	}
