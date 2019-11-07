@@ -24,8 +24,7 @@ public class Piece {
 	Double prix;
 	String description;
 	
-	@OneToMany(mappedBy="piece")
-	List<Tache> taches;
+	
 	
 	public Integer getId() {
 		return id;

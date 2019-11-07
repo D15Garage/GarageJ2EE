@@ -28,15 +28,15 @@ public class Tache {
 
 	Integer quantitePiece;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne
 	@JoinColumn(name = "taches_idtaches")
 	FicheEntretien fiche;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne
 	@JoinColumn(name = "employe_idemploye")
 	Employe employe;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne
 	@JoinColumn(name = "pieces_idpieces")	
 	Piece piece;
 	

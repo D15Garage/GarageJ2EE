@@ -30,8 +30,7 @@ public class Employe {
 	String motDePasse;
 	
 
-	@OneToMany(mappedBy="employe")
-	List <Tache> taches;
+
 	
 	public Integer getId() {
 		return id;

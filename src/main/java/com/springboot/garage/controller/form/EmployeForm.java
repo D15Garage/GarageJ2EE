@@ -5,10 +5,10 @@ import java.util.List;
 import javax.validation.constraints.Pattern;
 
 
-public class EmployeeForm {
+public class EmployeForm {
 	
 	@Pattern(regexp = "Mr|Mme")
-	String civility;
+	String civilite;
 	
 	String nom;
 	String prenom;
@@ -17,13 +17,11 @@ public class EmployeeForm {
 	
 	List<String> roles;
 	
-	
-	
-	public String getCivility() {
-		return civility;
+	public String getCivilite() {
+		return civilite;
 	}
-	public void setCivility(String civility) {
-		this.civility = civility;
+	public void setCivilite(String civilite) {
+		this.civilite = civilite;
 	}
 	public String getNom() {
 		return nom;

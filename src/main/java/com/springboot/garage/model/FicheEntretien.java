@@ -29,7 +29,7 @@ public class FicheEntretien {
 	Date dateDeCloture;
 	String description;
 	EtatFicheEntretien etat = EtatFicheEntretien.En_Attente;
-	Priorite priorité = Priorite.Normal;
+	Priorite priorite = Priorite.Normal;
 
 	Double nombreHeures;
 	Double tauxHoraire;
@@ -38,8 +38,7 @@ public class FicheEntretien {
 	@JoinColumn(name = "client_idclient")
 	Client client;
 	
-	@OneToMany(mappedBy="fiche")
-	List<Tache> taches;
+
 	
 	public Integer getId() {
 		return id;
@@ -77,16 +76,11 @@ public class FicheEntretien {
 	public void setEtat(EtatFicheEntretien etat) {
 		this.etat = etat;
 	}
-	public Priorite getPriorité() {
-		return priorité;
+	public Priorite getPriorite() {
+		return priorite;
 	}
-	public void setPriorité(Priorite priorité) {
-		this.priorité = priorité;
+	public void setPriorite(Priorite priorite) {
+		this.priorite = priorite;
 	}
-	public List<Tache> getTaches() {
-		return taches;
-	}
-	public void setTaches(List<Tache> taches) {
-		this.taches = taches;
-	}
+	
 }

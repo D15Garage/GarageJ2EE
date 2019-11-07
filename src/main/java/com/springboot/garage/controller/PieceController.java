@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.springboot.garage.controller.form.EmployeeForm;
+import com.springboot.garage.controller.form.EmployeForm;
 import com.springboot.garage.controller.form.PieceForm;
 import com.springboot.garage.model.Piece;
 import com.springboot.garage.services.IServiceListePieces;
@@ -47,7 +47,7 @@ public class PieceController {
 		return "modifierPiece";
 	}
 	@PostMapping(value = "/modifierPiece")
-	public String modifierPiecePost(@ModelAttribute EmployeeForm employeeForm, @ModelAttribute Integer employeeModId, Model model) {
+	public String modifierPiecePost(@ModelAttribute EmployeForm employeForm, @ModelAttribute Integer employeeModId, Model model) {
 		
 		return null;
 	}

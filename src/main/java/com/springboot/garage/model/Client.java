@@ -21,6 +21,7 @@ import com.springboot.garage.enums.Civilite;
 public class Client {
 
 	@Id
+	@Column(name="idclient")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Integer id;
 	
@@ -40,14 +41,6 @@ public class Client {
 	@JoinColumn(name = "employe_idemploye")
 	Employe employe;
 	
-	@OneToMany(mappedBy="client")
-	List<Devis> devis;
-	
-	@OneToMany(mappedBy="client")
-	List<FicheEntretien> fiches;
-	
-
-	List<FactureEntretien> factures;
 	
 	public Integer getId() {
 		return id;
@@ -109,5 +102,6 @@ public class Client {
 	public void setEmploye(Employe employe) {
 		this.employe = employe;
 	}
+	
 	
 }

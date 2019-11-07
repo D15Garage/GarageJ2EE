@@ -25,11 +25,7 @@ public class Vehicule {
 	Integer quantite;
 	Double prixUnitaireHT;
 	
-	@OneToMany(mappedBy="vehicule")
-	List<Devis> devis;
 	
-	@OneToMany(mappedBy="vehicule")
-	List<CommandeAchatVehicule> commandes;
 	
 	public Integer getId() {
 		return id;
