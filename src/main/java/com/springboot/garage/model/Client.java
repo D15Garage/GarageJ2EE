@@ -7,6 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.springboot.garage.enums.Civilite;
@@ -29,13 +32,17 @@ public class Client {
 	String telephone;
 	String mobile;
 	
-	Employe employee;
+	@ManyToOne
+	@JoinColumn(name = "employe_idemploye")
+	Employe employe;
+	
+	@OneToMany(mappedBy="client")
 	List<Devis> devis;
-
+	
+	@OneToMany(mappedBy="client")
 	List<FicheEntretien> fiches;
+	
 	List<FactureEntretien> factures;
-	
-	
 	
 	public Integer getId() {
 		return id;
@@ -91,11 +98,11 @@ public class Client {
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
 	}
-	public Employe getEmployee() {
-		return employee;
+	public Employe getEmploye() {
+		return employe;
 	}
-	public void setEmployee(Employe employee) {
-		this.employee = employee;
+	public void setEmploye(Employe employe) {
+		this.employe = employe;
 	}
 	public List<FicheEntretien> getFiches() {
 		return fiches;

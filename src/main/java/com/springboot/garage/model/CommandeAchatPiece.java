@@ -4,7 +4,6 @@ import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -31,7 +30,7 @@ public class CommandeAchatPiece {
 	@JoinColumn(name="pieces_idpieces")
 	Piece piece;
 	
-	int quantite;
+	Integer quantite;
 	
 	
 	public Integer getId() {
@@ -71,10 +70,10 @@ public class CommandeAchatPiece {
 	public void setPiece(Piece piece) {
 		this.piece = piece;
 	}
-	public int getQuantite() {
+	public Integer getQuantite() {
 		return quantite;
 	}
-	public void setQuantite(int quantite) {
+	public void setQuantite(Integer quantite) {
 		this.quantite = quantite;
 	}
 }

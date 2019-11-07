@@ -8,6 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.springboot.garage.enums.EtatFicheEntretien;
@@ -22,16 +25,20 @@ public class FicheEntretien {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Integer id;
 	
-	Client client;
-	Employe employee;
 	Date dateDeCreation;
 	Date dateDeCloture;
 	String description;
 	EtatFicheEntretien etat = EtatFicheEntretien.En_Attente;
 	Priorite priorité = Priorite.Normal;
+	Double nombreHeures;
+	Double tauxHoraire;
+	
+	@ManyToOne
+	@JoinColumn(name = "client_idclient")
+	Client client;
+	
+	@OneToMany(mappedBy="fiche")
 	List<Tache> taches;
-	
-	
 	
 	public Integer getId() {
 		return id;
@@ -44,12 +51,6 @@ public class FicheEntretien {
 	}
 	public void setClient(Client client) {
 		this.client = client;
-	}
-	public Employe getEmployee() {
-		return employee;
-	}
-	public void setEmployee(Employe employee) {
-		this.employee = employee;
 	}
 	public Date getDateDeCreation() {
 		return dateDeCreation;
