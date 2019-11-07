@@ -39,5 +39,4 @@ public class ServiceListeClients implements IServiceListeClients {
 	public void modifierClient(Client client) {
 		clientDao.save(client);
 	}
-
 }
