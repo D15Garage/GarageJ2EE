@@ -19,7 +19,7 @@ public class ServiceListeFactureVehicule implements IServiceListeFactureVehicule
 	}
 
 	@Override
-	public FactureVehicule trouverFacture(Long idFacture) {
+	public FactureVehicule trouverFacture(Integer idFacture) {
 		// TODO Auto-generated method stub
 		List<FactureVehicule> factures = factureVehiculeDAO.findAll();
 		for (FactureVehicule f : factures) {

@@ -20,15 +20,9 @@ public class ServiceListeEmployee implements IServiceListeEmployee{
 	}
 
 	@Override
-<<<<<<< HEAD
-	public Employee trouverEmployee(Integer idEmployee) {
-		List<Employee> employees = employeeDao.findAll();
-		for (Employee e : employees) {
-=======
-	public Employe trouverEmployee(Long idEmployee) {
+	public Employe trouverEmployee(Integer idEmployee) {
 		List<Employe> employees = employeeDao.findAll();
 		for (Employe e : employees) {
->>>>>>> ede31582910761f9a48c7023af03b1abca078115
 			if (e.getId() == idEmployee) {
 				return e;
 			}

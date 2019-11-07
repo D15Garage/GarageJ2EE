@@ -7,7 +7,7 @@ import com.springboot.garage.model.FicheEntretien;
 public interface IServiceListeFiches {
 
 	List<FicheEntretien> afficherFiches();
-	FicheEntretien trouverFiche(Long idFiche);
+	FicheEntretien trouverFiche(Integer idFiche);
 	void ajouterFiche(FicheEntretien fiche);
 	void modifierFiche(FicheEntretien fiche);
 }

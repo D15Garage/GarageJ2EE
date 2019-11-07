@@ -7,7 +7,7 @@ import com.springboot.garage.model.Devis;
 public interface IServiceListeDevis{
 
 	List<Devis> afficherDevis();
-	Devis trouverDevis(Long idDevis);
+	Devis trouverDevis(Integer idDevis);
 	void ajouterDevis(Devis devis);
 	void modifierDevis(Devis devis);
 }

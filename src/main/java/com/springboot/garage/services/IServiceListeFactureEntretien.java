@@ -7,7 +7,7 @@ import com.springboot.garage.model.FactureEntretien;
 public interface IServiceListeFactureEntretien {
 	
 	List<FactureEntretien> afficherfactures();
-	FactureEntretien trouverFacture(Long idFacture);
+	FactureEntretien trouverFacture(Integer idFacture);
 	void ajouterFacture(FactureEntretien facture);
 	void modifierFacture(FactureEntretien facture);
 

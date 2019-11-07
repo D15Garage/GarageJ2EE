@@ -7,7 +7,7 @@ import com.springboot.garage.model.Piece;
 public interface IServiceListePieces {
 
 	List<Piece> afficherPieces();
-	Piece trouverPiece(Long idPiece);
+	Piece trouverPiece(Integer idPiece);
 	void ajouterPiece(Piece piece);
 	void modifierPiece(Piece piece);
 }

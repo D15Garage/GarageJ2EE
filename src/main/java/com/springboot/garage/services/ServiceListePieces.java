@@ -20,7 +20,7 @@ public class ServiceListePieces implements IServiceListePieces {
 	}
 
 	@Override
-	public Piece trouverPiece(Long idPiece) {
+	public Piece trouverPiece(Integer idPiece) {
 		List<Piece> pieces = pieceDAO.findAll();
 		for (Piece p : pieces) {
 			if (p.getId() == idPiece) {

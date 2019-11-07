@@ -37,7 +37,7 @@ public class ClientController {
 	@PostMapping(value = "/ajouterClient")
 	public String ajouterClientPost(@Valid @ModelAttribute ClientForm clientForm, Model model) {
 		Client c = new Client();
-		c.setCivility(Civilite.valueOf(clientForm.getCivility()));
+		c.setCivilite(Civilite.valueOf(clientForm.getCivility()));
 		c.setNom(clientForm.getNom());
 		c.setPrenom(clientForm.getPrenom());
 		c.setAdresse(clientForm.getAdresse());

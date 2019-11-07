@@ -7,7 +7,7 @@ import com.springboot.garage.model.CommandeAchatVehicule;
 public interface IServiceListeCommandeAchatVehicule {
 	
 	List<CommandeAchatVehicule> afficherCommandes();
-	CommandeAchatVehicule trouverCommande(Long idCommande);
+	CommandeAchatVehicule trouverCommande(Integer idCommande);
 	void ajouterCommande(CommandeAchatVehicule commande);
 	void modifierCommande(CommandeAchatVehicule commande);
 	

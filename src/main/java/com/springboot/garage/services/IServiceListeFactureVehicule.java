@@ -8,7 +8,7 @@ public interface IServiceListeFactureVehicule {
 	
 	
 	List<FactureVehicule> afficherFactures();
-	FactureVehicule trouverFacture(Long idFacture);
+	FactureVehicule trouverFacture(Integer idFacture);
 	void ajouterFacture(FactureVehicule facture);
 	void modifierFacture(FactureVehicule facture);
 	

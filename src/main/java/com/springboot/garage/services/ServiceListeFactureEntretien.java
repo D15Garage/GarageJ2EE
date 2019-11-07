@@ -21,7 +21,7 @@ public class ServiceListeFactureEntretien implements IServiceListeFactureEntreti
 	}
 
 	@Override
-	public FactureEntretien trouverFacture(Long idFacture) {
+	public FactureEntretien trouverFacture(Integer idFacture) {
 		// TODO Auto-generated method stub
 		List<FactureEntretien> factures = factureEntretienDAO.findAll();
 		for(FactureEntretien f : factures) {

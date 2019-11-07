@@ -20,7 +20,7 @@ public class ServiceListeCommandeAchatPiece implements IServiceListeCommandeAcha
 	}
 
 	@Override
-	public CommandeAchatPiece trouverCommande(Long idCommande) {
+	public CommandeAchatPiece trouverCommande(Integer idCommande) {
 		// TODO Auto-generated method stub
 		List<CommandeAchatPiece> commandes = commandeDAO.findAll();
 		for (CommandeAchatPiece c : commandes) {

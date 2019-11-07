@@ -20,7 +20,7 @@ public class ServiceListeDevis implements IServiceListeDevis {
 	}
 
 	@Override
-	public Devis trouverDevis(Long idDevis) {
+	public Devis trouverDevis(Integer idDevis) {
 		List<Devis> listeDevis = devisDAO.findAll();
 		for (Devis d : listeDevis) {
 			if (d.getId() == idDevis) {

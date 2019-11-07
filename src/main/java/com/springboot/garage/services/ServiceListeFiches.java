@@ -21,7 +21,7 @@ public class ServiceListeFiches implements IServiceListeFiches {
 	}
 
 	@Override
-	public FicheEntretien trouverFiche(Long idFiche) {
+	public FicheEntretien trouverFiche(Integer idFiche) {
 		// TODO Auto-generated method stub
 		List<FicheEntretien> fiches = ficheDAO.findAll();
 		for (FicheEntretien f : fiches) {
