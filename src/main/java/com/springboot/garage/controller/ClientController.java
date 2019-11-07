@@ -41,7 +41,7 @@ public class ClientController {
 		c.setNom(clientForm.getNom());
 		c.setPrenom(clientForm.getPrenom());
 		c.setAdresse(clientForm.getAdresse());
-		c.setCodePostal(clientForm.getCodePostal());
+		//c.setCodePostal(clientForm.getCodePostal());
 		c.setVille(clientForm.getVille());
 		c.setTelephone(clientForm.getTelephone());
 		clientService.ajouterClient(c);

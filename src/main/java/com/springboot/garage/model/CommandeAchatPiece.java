@@ -13,8 +13,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import com.springboot.garage.enums.EtatCommande;
 
-@Entity
-@Table(name="commande_piece")
+//@Entity
+//@Table
 public class CommandeAchatPiece {
 
 	@Id

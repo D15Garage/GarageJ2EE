@@ -35,7 +35,7 @@ public class PieceController {
 		Piece p = new Piece();
 		p.setReference(pieceForm.getReference());
 		p.setDescription(pieceForm.getDescription());
-		p.setQuantity(Integer.valueOf(pieceForm.getQuantity()));
+		//p.setQuantity(Integer.valueOf(pieceForm.getQuantity()));
 		//p.setPrix(prix);
 		pieceService.ajouterPiece(p);
 		return null;

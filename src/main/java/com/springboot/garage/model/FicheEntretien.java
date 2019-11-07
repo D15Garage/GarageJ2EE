@@ -1,6 +1,7 @@
 package com.springboot.garage.model;
 
 import java.sql.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,7 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.springboot.garage.enums.EtatFicheEntretien;
@@ -27,8 +28,6 @@ public class FicheEntretien {
 	@ManyToOne
 	@JoinColumn(name = "client_idclient")
 	Client client;
-
-	Employe employee;
 
 	Date dateDeCreation;
 	Date dateDeCloture;
@@ -54,15 +53,6 @@ public class FicheEntretien {
 	public void setClient(Client client) {
 		this.client = client;
 	}
-<<<<<<< HEAD
-=======
-	public Employe getEmployee() {
-		return employee;
-	}
-	public void setEmployee(Employe employee) {
-		this.employee = employee;
-	}
->>>>>>> ede31582910761f9a48c7023af03b1abca078115
 	public Date getDateDeCreation() {
 		return dateDeCreation;
 	}
@@ -93,10 +83,10 @@ public class FicheEntretien {
 	public void setPriorité(Priorite priorité) {
 		this.priorité = priorité;
 	}
-	public Tache getTaches() {
+	public List<Tache> getTaches() {
 		return taches;
 	}
-	public void setTaches(Tache taches) {
+	public void setTaches(List<Tache> taches) {
 		this.taches = taches;
 	}
 }

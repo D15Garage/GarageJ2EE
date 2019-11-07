@@ -49,7 +49,7 @@ public class EmployeeController {
 	
 	@GetMapping(value = "/modifierEmployee/{id}")
 	public String modifierEmployeeGet(@PathVariable final Integer id, Model model) {
-		Employee e = employeeService.trouverEmployee(id);
+		Employe e = employeeService.trouverEmployee(id);
 		EmployeeForm employeeForm = new EmployeeForm();
 		employeeForm.setCivility(e.getCivility().toString());
 		employeeForm.setNom(e.getNom());
@@ -68,7 +68,7 @@ public class EmployeeController {
 		e.setPrenom(employeeForm.getPrenom());
 		e.setIdentifiant(employeeForm.getIdentifiant());
 		e.setMotDePasse(employeeForm.getMotDePasse());
-		e.setRoles(employeeForm.getRoles());
+		//e.setRoles(employeeForm.getRoles());
 		employeeService.modifierEmployee(e);
 		return null;
 	}

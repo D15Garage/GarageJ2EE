@@ -33,10 +33,10 @@ public class Devis {
 	Employe employe;
 
 
-	Date dateDeCreation;
-	Date dateDeCloture;
+	//Date dateDeCreation;
+	//Date dateDeCloture;
 	EtatDevis etat;
-	String description;
+	//String description;
 	
 	@ManyToOne
 	@JoinColumn(name = "vehicules_idvehicules")
@@ -68,30 +68,30 @@ public class Devis {
 	public void setEmploye(Employe employe) {
 		this.employe = employe;
 	}
-	public Date getDateDeCreation() {
-		return dateDeCreation;
-	}
-	public void setDateDeCreation(Date dateDeCreation) {
-		this.dateDeCreation = dateDeCreation;
-	}
-	public Date getDateDeCloture() {
-		return dateDeCloture;
-	}
-	public void setDateDeCloture(Date dateDeCloture) {
-		this.dateDeCloture = dateDeCloture;
-	}
+//	public Date getDateDeCreation() {
+//		return dateDeCreation;
+//	}
+//	public void setDateDeCreation(Date dateDeCreation) {
+//		this.dateDeCreation = dateDeCreation;
+//	}
+//	public Date getDateDeCloture() {
+//		return dateDeCloture;
+//	}
+//	public void setDateDeCloture(Date dateDeCloture) {
+//		this.dateDeCloture = dateDeCloture;
+//	}
 	public EtatDevis getEtat() {
 		return etat;
 	}
 	public void setEtat(EtatDevis etat) {
 		this.etat = etat;
 	}
-	public String getDescription() {
-		return description;
-	}
-	public void setDescription(String description) {
-		this.description = description;
-	}
+//	public String getDescription() {
+//		return description;
+//	}
+//	public void setDescription(String description) {
+//		this.description = description;
+//	}
 	public Vehicule getVehicule() {
 		return vehicule;
 	}

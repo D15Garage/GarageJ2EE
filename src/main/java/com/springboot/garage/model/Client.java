@@ -20,7 +20,6 @@ import com.springboot.garage.enums.Civilite;
 public class Client {
 
 	@Id
-	@Column(name="idclient")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Integer id;
 	
@@ -31,7 +30,7 @@ public class Client {
 	String nom;
 	String prenom;
 	String adresse;
-	String codePostal;
+	//String codePostal;
 	String ville;
 	String telephone;
 	String mobile;
@@ -39,11 +38,6 @@ public class Client {
 	@ManyToOne
 	@JoinColumn(name = "employe_idemploye")
 	Employe employee;
-
-	List<Devis> devis;
-
-	List<FicheEntretien> fiches;
-	List<FactureEntretien> factures;
 	
 	
 	public Integer getId() {
@@ -76,12 +70,12 @@ public class Client {
 	public void setAdresse(String adresse) {
 		this.adresse = adresse;
 	}
-	public String getCodePostal() {
-		return codePostal;
-	}
-	public void setCodePostal(String codePostal) {
-		this.codePostal = codePostal;
-	}
+//	public String getCodePostal() {
+//		return codePostal;
+//	}
+//	public void setCodePostal(String codePostal) {
+//		this.codePostal = codePostal;
+//	}
 	public String getVille() {
 		return ville;
 	}
