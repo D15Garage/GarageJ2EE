@@ -23,9 +23,9 @@ public class FactureEntretien {
 	Date dateFacturation;
 	Double total;
 	Double tauxTVA;
-
+	
 	@OneToOne
-	@JoinColumn(name = "fiche_entretiens_idfiche_entretiens")
+	@JoinColumn(name = "idfiche_entretiens")
 	FicheEntretien fiche;
 	
 	public Integer getId() {

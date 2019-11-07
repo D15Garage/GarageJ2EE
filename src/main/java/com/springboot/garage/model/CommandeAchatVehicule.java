@@ -24,6 +24,8 @@ public class CommandeAchatVehicule {
 	EtatCommande etat;
 	Date dateDeCreation;
 	Date dateDeCloture;
+
+	Integer quantite;
 	
 	@OneToOne
 	@JoinColumn(name = "devis_iddevis")
@@ -33,7 +35,6 @@ public class CommandeAchatVehicule {
 	@JoinColumn(name = "vehicules_idvehicules")
 	Vehicule vehicule;
 
-	int quantite;
 	
 	public Integer getId() {
 		return id;
@@ -71,10 +72,10 @@ public class CommandeAchatVehicule {
 	public void setVehicule(Vehicule vehicule) {
 		this.vehicule = vehicule;
 	}
-	public int getQuantite() {
+	public Integer getQuantite() {
 		return quantite;
 	}
-	public void setQuantite(int quantite) {
+	public void setQuantite(Integer quantite) {
 		this.quantite = quantite;
 	}
 	

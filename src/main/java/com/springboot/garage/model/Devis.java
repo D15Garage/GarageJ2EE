@@ -23,26 +23,25 @@ public class Devis {
 	Integer id;
 	
 	String reference;
-	
-	@ManyToOne
-	@JoinColumn(name = "client_idclient")
-	Client client;
+
+	Date dateDeCreation;
+	Date dateDeCloture;
+	EtatDevis etat;
+	String description;
+	Double quantite;
 	
 	@ManyToOne
 	@JoinColumn(name = "employe_idemploye")
 	Employe employe;
+	
+	@ManyToOne
+	@JoinColumn(name = "client_idclient")
+	Client client;
 
-
-	//Date dateDeCreation;
-	//Date dateDeCloture;
-	EtatDevis etat;
-	//String description;
 	
 	@ManyToOne
 	@JoinColumn(name = "vehicules_idvehicules")
 	Vehicule vehicule;
-
-	Double quantity;
 
 	public Integer getId() {
 		return id;
@@ -98,11 +97,11 @@ public class Devis {
 	public void setVehicule(Vehicule vehicule) {
 		this.vehicule = vehicule;
 	}
-	public Double getQuantity() {
-		return quantity;
+	public Double getQuantite() {
+		return quantite;
 	}
-	public void setQuantity(Double quantity) {
-		this.quantity = quantity;
+	public void setQuantite(Double quantite) {
+		this.quantite = quantite;
 	}
 	
 }

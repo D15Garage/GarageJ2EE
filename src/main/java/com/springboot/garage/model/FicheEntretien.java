@@ -25,21 +25,21 @@ public class FicheEntretien {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Integer id;
 	
-	@ManyToOne
-	@JoinColumn(name = "client_idclient")
-	Client client;
-
 	Date dateDeCreation;
 	Date dateDeCloture;
 	String description;
 	EtatFicheEntretien etat = EtatFicheEntretien.En_Attente;
 	Priorite priorité = Priorite.Normal;
 
-	@OneToMany
-	@JoinColumn(name = "tache_idtaches")
+	Double nombreHeures;
+	Double tauxHoraire;
+	
+	@ManyToOne
+	@JoinColumn(name = "client_idclient")
+	Client client;
+	
+	@OneToMany(mappedBy="fiche")
 	List<Tache> taches;
-	
-	
 	
 	public Integer getId() {
 		return id;

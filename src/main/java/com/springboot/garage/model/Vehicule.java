@@ -1,10 +1,13 @@
 package com.springboot.garage.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -18,11 +21,16 @@ public class Vehicule {
 	String reference;
 	String marque;
 	String modele;
-	int annee;
+	Integer annee;
 	String couleur;
-	int quantite;
+	Integer quantite;
+	Double prixUnitaireHT;
 	
-	double prixUnitaireHT;
+	@OneToMany(mappedBy="vehicule")
+	List<Devis> devis;
+	
+	@OneToMany(mappedBy="vehicule")
+	List<CommandeAchatVehicule> commandes;
 	
 	public Integer getId() {
 		return id;
@@ -48,10 +56,10 @@ public class Vehicule {
 	public void setModele(String modele) {
 		this.modele = modele;
 	}
-	public int getAnnee() {
+	public Integer getAnnee() {
 		return annee;
 	}
-	public void setAnnee(int annee) {
+	public void setAnnee(Integer annee) {
 		this.annee = annee;
 	}
 	public String getCouleur() {
@@ -60,16 +68,16 @@ public class Vehicule {
 	public void setCouleur(String couleur) {
 		this.couleur = couleur;
 	}
-	public int getQuantite() {
+	public Integer getQuantite() {
 		return quantite;
 	}
-	public void setQuantite(int quantite) {
+	public void setQuantite(Integer quantite) {
 		this.quantite = quantite;
 	}
-	public double getPrix() {
+	public Double getPrix() {
 		return prixUnitaireHT;
 	}
-	public void setPrix(double prixUnitaireHT) {
+	public void setPrix(Double prixUnitaireHT) {
 		this.prixUnitaireHT = prixUnitaireHT;
 	}
 	

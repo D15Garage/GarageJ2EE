@@ -26,13 +26,19 @@ public class Tache {
 	EtatTache etat = EtatTache.En_Cours;
 	Priorite priorite = Priorite.Normal;
 
+	Integer quantitePiece;
+	
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "pieces_idpieces")
+	@JoinColumn(name = "taches_idtaches")
+	FicheEntretien fiche;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "employe_idemploye")
+	Employe employe;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "pieces_idpieces")	
 	Piece piece;
-	
-	int quantitePiece;
-	
-	
 	
 	public Integer getId() {
 		return id;
@@ -70,10 +76,10 @@ public class Tache {
 	public void setPiece(Piece piece) {
 		this.piece = piece;
 	}
-	public int getQuantitePiece() {
+	public Integer getQuantitePiece() {
 		return quantitePiece;
 	}
-	public void setQuantitePiece(int quantitePiece) {
+	public void setQuantitePiece(Integer quantitePiece) {
 		this.quantitePiece = quantitePiece;
 	}
 }

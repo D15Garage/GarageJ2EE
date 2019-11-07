@@ -1,10 +1,13 @@
 package com.springboot.garage.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -17,11 +20,12 @@ public class Piece {
 	Integer id;
 	
 	String reference;
-	int quantite;
+	Integer quantite;
 	Double prix;
 	String description;
 	
-	
+	@OneToMany(mappedBy="piece")
+	List<Tache> taches;
 	
 	public Integer getId() {
 		return id;
@@ -35,10 +39,10 @@ public class Piece {
 	public void setReference(String reference) {
 		this.reference = reference;
 	}
-	public int getQuantite() {
+	public Integer getQuantite() {
 		return quantite;
 	}
-	public void setQuantite(int quantite) {
+	public void setQuantite(Integer quantite) {
 		this.quantite = quantite;
 	}
 	public Double getPrix() {
