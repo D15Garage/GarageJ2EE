@@ -38,7 +38,7 @@ public class EmployeeController {
 
 	public String ajouterEmployeePost(@Valid @ModelAttribute EmployeeForm employeeForm, BindingResult bindingResult) {
 		Employe e = new Employe();
-		e.setCivility(Civilite.valueOf(employeeForm.getCivility()));
+		//e.setCivility(Civilite.valueOf(employeeForm.getCivility()));
 		e.setNom(employeeForm.getNom());
 		e.setPrenom(employeeForm.getPrenom());
 		e.setIdentifiant(employeeForm.getIdentifiant());
@@ -51,7 +51,7 @@ public class EmployeeController {
 	public String modifierEmployeeGet(@PathVariable final Integer id, Model model) {
 		Employe e = employeeService.trouverEmployee(id);
 		EmployeeForm employeeForm = new EmployeeForm();
-		employeeForm.setCivility(e.getCivility().toString());
+		//employeeForm.setCivility(e.getCivility().toString());
 		employeeForm.setNom(e.getNom());
 		employeeForm.setPrenom(e.getPrenom());
 		employeeForm.setIdentifiant(e.getIdentifiant());
@@ -63,7 +63,7 @@ public class EmployeeController {
 	public String modifierEmployeePost(@Valid @ModelAttribute EmployeeForm employeeForm, BindingResult bindingResult, @ModelAttribute Integer employeeModId) {
 		//Here
 		Employe e = employeeService.trouverEmployee(employeeModId);
-		e.setCivility(Civilite.valueOf(employeeForm.getCivility()));
+		//e.setCivility(Civilite.valueOf(employeeForm.getCivility()));
 		e.setNom(employeeForm.getNom());
 		e.setPrenom(employeeForm.getPrenom());
 		e.setIdentifiant(employeeForm.getIdentifiant());

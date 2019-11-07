@@ -46,6 +46,7 @@ public class Client {
 	@OneToMany(mappedBy="client")
 	List<FicheEntretien> fiches;
 	
+
 	List<FactureEntretien> factures;
 	
 	public Integer getId() {
