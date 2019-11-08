@@ -33,7 +33,6 @@ public class PieceController {
 	@PostMapping(value = "/ajouterPiece")
 	public String ajouterPiecePost(@ModelAttribute PieceForm pieceForm, Model model) {
 		Piece p = new Piece();
-		p.setReference(pieceForm.getReference());
 		p.setDescription(pieceForm.getDescription());
 		//p.setQuantity(Integer.valueOf(pieceForm.getQuantity()));
 		//p.setPrix(prix);

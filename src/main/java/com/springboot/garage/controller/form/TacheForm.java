@@ -1,18 +1,27 @@
 package com.springboot.garage.controller.form;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+
 import com.springboot.garage.enums.Priorite;
 
 public class TacheForm {
 
+	@NotNull
 	String dateDeCreation;
+	
+	@NotNull
+	@Pattern(regexp = "Vidange|Peinture|Réparation|Nettoyage")
 	String entretien;
+	
+	@NotNull
 	String vehicule;
-	String etat;
+	
+	@NotNull
 	String details;
-	String priorite = Priorite.Normal.toString();
-	String fiche;
 	
-	
+	@Pattern(regexp = "Non prioritaire|Normal|Urgent|Très Urgent")
+	String priorite;	
 	
 	public String getDateDeCreation() {
 		return dateDeCreation;
@@ -32,12 +41,6 @@ public class TacheForm {
 	public void setVehicule(String vehicule) {
 		this.vehicule = vehicule;
 	}
-	public String getEtat() {
-		return etat;
-	}
-	public void setStatus(String status) {
-		this.etat = status;
-	}
 	public String getPriorite() {
 		return priorite;
 	}
@@ -50,11 +53,4 @@ public class TacheForm {
 	public void setDetails(String details) {
 		this.details = details;
 	}
-	public String getFiche() {
-		return fiche;
-	}
-	public void setFiche(String fiche) {
-		this.fiche = fiche;
-	}
-	
 }

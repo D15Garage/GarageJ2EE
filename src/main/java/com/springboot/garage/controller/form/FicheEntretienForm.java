@@ -5,8 +5,7 @@ public class FicheEntretienForm {
 	String dateDeCreation;
 	String commande;
 	String Vehicule;
-	String etat = "En_Attente";
-	String priorité = "Normal";
+	String priorite = "Normal";
 	String taches;
 	
 	
@@ -29,17 +28,11 @@ public class FicheEntretienForm {
 	public void setVehicule(String vehicule) {
 		Vehicule = vehicule;
 	}
-	public String getEtat() {
-		return etat;
+	public String getPriorite() {
+		return priorite;
 	}
-	public void setEtat(String etat) {
-		this.etat = etat;
-	}
-	public String getPriorité() {
-		return priorité;
-	}
-	public void setPriorité(String priorité) {
-		this.priorité = priorité;
+	public void setPriorite(String priorite) {
+		this.priorite = priorite;
 	}
 	public String getTaches() {
 		return taches;

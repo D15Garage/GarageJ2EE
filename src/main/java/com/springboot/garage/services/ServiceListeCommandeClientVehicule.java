@@ -4,23 +4,23 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.springboot.garage.dao.CommandeAchatVehiculeDAO;
-import com.springboot.garage.model.CommandeAchatVehicule;
+import com.springboot.garage.dao.CommandeClientVehiculeDAO;
+import com.springboot.garage.model.CommandeClientVehicule;
 
-public class ServiceListeCommandeAchatVehicule implements IServiceListeCommandeAchatVehicule {
+public class ServiceListeCommandeClientVehicule implements IServiceListeCommandeClientVehicule {
 
 	
 	@Autowired
-	CommandeAchatVehiculeDAO commandeDAO;
+	CommandeClientVehiculeDAO commandeDAO;
 	
 	@Override
-	public List<CommandeAchatVehicule> afficherCommandes() {
+	public List<CommandeClientVehicule> afficherCommandes() {
 		// TODO Auto-generated method stub
 		return commandeDAO.findAll();
 	}
 
 	@Override
-	public CommandeAchatVehicule trouverCommande(Integer idCommande) {
+	public CommandeClientVehicule trouverCommande(Integer idCommande) {
 		// TODO Auto-generated method stub
 		//List<CommandeAchatVehicule> commandes = commandeDAO.findAll();
 //		for (CommandeAchatVehicule c : commandes) {
@@ -30,13 +30,13 @@ public class ServiceListeCommandeAchatVehicule implements IServiceListeCommandeA
 	}
 
 	@Override
-	public void ajouterCommande(CommandeAchatVehicule commande) {
+	public void ajouterCommande(CommandeClientVehicule commande) {
 		// TODO Auto-generated method stub
 		commandeDAO.save(commande);
 	}
 
 	@Override
-	public void modifierCommande(CommandeAchatVehicule commande) {
+	public void modifierCommande(CommandeClientVehicule commande) {
 		// TODO Auto-generated method stub
 		commandeDAO.save(commande);
 	}

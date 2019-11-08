@@ -17,7 +17,7 @@ import com.springboot.garage.enums.EtatCommande;
 
 @Entity
 @Table(name="commande_vehicules")
-public class CommandeAchatVehicule {
+public class CommandeClientVehicule {
 
 	@Id
 	@Column(name="idcommande_vehicules")

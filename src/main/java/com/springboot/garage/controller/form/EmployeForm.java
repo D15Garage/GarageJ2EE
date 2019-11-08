@@ -2,7 +2,9 @@ package com.springboot.garage.controller.form;
 
 import java.util.List;
 
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 
 public class EmployeForm {
@@ -10,11 +12,17 @@ public class EmployeForm {
 	@Pattern(regexp = "Mr|Mme")
 	String civilite;
 	
+	@NotNull
 	String nom;
+	
+	@NotNull
 	String prenom;
-	String identifiant;
+	
+	@NotNull
+	@Size(min=6)
 	String motDePasse;
 	
+	@NotNull
 	List<String> roles;
 	
 	public String getCivilite() {
@@ -34,12 +42,6 @@ public class EmployeForm {
 	}
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
-	}
-	public String getIdentifiant() {
-		return identifiant;
-	}
-	public void setIdentifiant(String identifiant) {
-		this.identifiant = identifiant;
 	}
 	public String getMotDePasse() {
 		return motDePasse;

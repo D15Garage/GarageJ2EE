@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.springboot.garage.controller.form.FactureEntretienForm;
+// import com.springboot.garage.controller.form.FactureEntretienForm;
 import com.springboot.garage.services.IServiceListeFactureEntretien;
 
 @Controller
@@ -30,17 +30,17 @@ public class FactureEntretienController {
 	public String ajouterFactureEntretienGet(Model model) {
 		return "ajouterFactureEntretien";
 	}
-	@PostMapping(value = "/ajouterFactureEntretien")
-	public String ajouterFactureEntretienPost(@Valid @ModelAttribute FactureEntretienForm factureEntretienForm, Model model) {
-		return null;
-	}
+//	@PostMapping(value = "/ajouterFactureEntretien")
+//	public String ajouterFactureEntretienPost(@Valid @ModelAttribute FactureEntretienForm factureEntretienForm, Model model) {
+//		return null;
+//	}
 	
 	@GetMapping(value = "/modifierFactureEntretien/{id}")
 	public String modifierFactureEntretienGet(@PathVariable Integer id, Model model) {
 		return "modifierFactureEntretien";
 	}
-	@PostMapping(value = "/modifierFactureEntretien")
-	public String modifierFactureEntretienPost(@Valid @ModelAttribute FactureEntretienForm factureEntretienForm, BindingResult bindingResult) {
-		return null;
-	}
+//	@PostMapping(value = "/modifierFactureEntretien")
+//	public String modifierFactureEntretienPost(@Valid @ModelAttribute FactureEntretienForm factureEntretienForm, BindingResult bindingResult) {
+//		return null;
+//	}
 }
