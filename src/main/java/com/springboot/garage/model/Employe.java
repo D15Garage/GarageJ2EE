@@ -6,6 +6,8 @@ import java.util.List;
 import javax.persistence.Column;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,14 +25,14 @@ public class Employe {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Integer id;
 	
+	@Enumerated(EnumType.STRING)
+	@Column(columnDefinition = "enum('Mr', 'Mme')", name = "civilite")
 	Civilite civilite;
 	String nom;
 	String prenom;
-	String identifiant;
+	String numeroEmploye;
 	String motDePasse;
 	
-
-
 	
 	public Integer getId() {
 		return id;
@@ -56,16 +58,16 @@ public class Employe {
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
-	public String getIdentifiant() {
-		return identifiant;
-	}
-	public void setIdentifiant(String identifiant) {
-		this.identifiant = identifiant;
-	}
 	public String getMotDePasse() {
 		return motDePasse;
 	}
 	public void setMotDePasse(String motDePasse) {
 		this.motDePasse = motDePasse;
+	}
+	public String getNumeroEmploye() {
+		return numeroEmploye;
+	}
+	public void setNumeroEmploye(String numeroEmploye) {
+		this.numeroEmploye = numeroEmploye;
 	}
 }

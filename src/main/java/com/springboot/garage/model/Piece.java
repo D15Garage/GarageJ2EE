@@ -11,20 +11,18 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table
+@Table(name="pieces")
 public class Piece {
 
 	@Id
-	@Column(name="idpiece")
+	@Column(name="idpieces")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Integer id;
 	
 	String reference;
 	Integer quantite;
-	Double prix;
+	Double prixUnitaireHt;
 	String description;
-	
-	
 	
 	public Integer getId() {
 		return id;
@@ -44,17 +42,17 @@ public class Piece {
 	public void setQuantite(Integer quantite) {
 		this.quantite = quantite;
 	}
-	public Double getPrix() {
-		return prix;
-	}
-	public void setPrix(Double prix) {
-		this.prix = prix;
-	}
 	public String getDescription() {
 		return description;
 	}
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	public Double getPrixUnitaireHt() {
+		return prixUnitaireHt;
+	}
+	public void setPrixUnitaireHt(Double prixUnitaireHt) {
+		this.prixUnitaireHt = prixUnitaireHt;
 	}
 	
 }

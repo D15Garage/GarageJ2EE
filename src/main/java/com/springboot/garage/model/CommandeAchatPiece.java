@@ -4,6 +4,9 @@ import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,7 +16,7 @@ import javax.persistence.Table;
 import com.springboot.garage.enums.EtatCommande;
 
 @Entity
-@Table(name="commande_piece")
+@Table(name="commande_pieces")
 public class CommandeAchatPiece {
 
 	@Id
@@ -21,10 +24,12 @@ public class CommandeAchatPiece {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Integer id;
 	
+	@Enumerated(EnumType.STRING)
+	@Column(columnDefinition = "enum('Valide', 'Annule', 'En attente')", name = "etat")
 	EtatCommande etat;
-	String reference;
-	Date dateDeCreation;
-	Date dateDeCloture;
+	
+	Date dateCreation;
+	Date dateCloture;
 	
 	@ManyToOne
 	@JoinColumn(name="pieces_idpieces")
@@ -45,23 +50,17 @@ public class CommandeAchatPiece {
 	public void setEtat(EtatCommande etat) {
 		this.etat = etat;
 	}
-	public String getReference() {
-		return reference;
+	public Date getDateCreation() {
+		return dateCreation;
 	}
-	public void setReference(String reference) {
-		this.reference = reference;
+	public void setDateCreation(Date dateCreation) {
+		this.dateCreation = dateCreation;
 	}
-	public Date getDateDeCreation() {
-		return dateDeCreation;
+	public Date getDateCloture() {
+		return dateCloture;
 	}
-	public void setDateDeCreation(Date dateDeCreation) {
-		this.dateDeCreation = dateDeCreation;
-	}
-	public Date getDateDeCloture() {
-		return dateDeCloture;
-	}
-	public void setDateDeCloture(Date dateDeCloture) {
-		this.dateDeCloture = dateDeCloture;
+	public void setDateCloture(Date dateCloture) {
+		this.dateCloture = dateCloture;
 	}
 	public Piece getPiece() {
 		return piece;

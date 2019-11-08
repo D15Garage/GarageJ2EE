@@ -1,6 +1,9 @@
 package com.springboot.garage.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,22 +17,31 @@ import com.springboot.garage.enums.EtatTache;
 import com.springboot.garage.enums.Priorite;
 
 @Entity
-@Table
+@Table(name="taches")
 public class Tache {
 
 	@Id
+	@Column(name="idtaches")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Integer id;
-	
-	Entretien entretien;
 	String description;
-	EtatTache etat = EtatTache.En_Cours;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(columnDefinition = "enum('Vidange', 'Peinture', 'Reparation', 'Nettoyage')", name = "type_entretien")
+	Entretien typeEntretien;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(columnDefinition = "enum('A realiser', 'En cours', 'Suspendue', 'Terminee')", name = "etat")
+	EtatTache etat = EtatTache.A_realiser;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(columnDefinition = "enum('Non prioritaire', 'Normal', 'Urgent', 'Tres urgent')", name = "niveau_de_priorite")
 	Priorite priorite = Priorite.Normal;
 
-	Integer quantitePiece;
+	Integer quantitePieces;
 	
 	@ManyToOne
-	@JoinColumn(name = "taches_idtaches")
+	@JoinColumn(name = "fiche_entretiens_idfiche_entretiens")
 	FicheEntretien fiche;
 	
 	@ManyToOne
@@ -46,11 +58,11 @@ public class Tache {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Entretien getEntretien() {
-		return entretien;
+	public Entretien getTypeEntretien() {
+		return typeEntretien;
 	}
-	public void setEntretien(Entretien entretien) {
-		this.entretien = entretien;
+	public void setTypeEntretien(Entretien typeEntretien) {
+		this.typeEntretien = typeEntretien;
 	}
 	public String getDescription() {
 		return description;
@@ -76,10 +88,10 @@ public class Tache {
 	public void setPiece(Piece piece) {
 		this.piece = piece;
 	}
-	public Integer getQuantitePiece() {
-		return quantitePiece;
+	public Integer getQuantitePieces() {
+		return quantitePieces;
 	}
-	public void setQuantitePiece(Integer quantitePiece) {
-		this.quantitePiece = quantitePiece;
+	public void setQuantitePieces(Integer quantitePieces) {
+		this.quantitePieces = quantitePieces;
 	}
 }

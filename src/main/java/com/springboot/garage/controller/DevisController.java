@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.springboot.garage.controller.form.ClientForm;
-import com.springboot.garage.controller.form.DevisForm;
+// import com.springboot.garage.controller.form.DevisForm;
 import com.springboot.garage.services.IServiceListeDevis;
 
 @Controller
@@ -33,17 +33,17 @@ public class DevisController {
 		model.addAttribute("listeDevis", devisService.afficherDevis());
 		return "ajouterDevis";
 	}
-	@PostMapping(value = "/ajouterDevis")
-	public String ajouterDevisPost(@Valid @ModelAttribute DevisForm devisForm, Model model) {
-		return null;
-	}
+//	@PostMapping(value = "/ajouterDevis")
+//	public String ajouterDevisPost(@Valid @ModelAttribute DevisForm devisForm, Model model) {
+//		return null;
+//	}
 	
 	@GetMapping(value = "/modifierDevis/{id}")
 	public String modifierDevisGet(@PathVariable Integer id, Model model) {
 		return "modifierDevis";
 	}
-	@PostMapping(value = "/modifierDevis")
-	public String modifierDevisPost(@Valid @ModelAttribute DevisForm devisForm, BindingResult bindingResult) {
-		return null;
-	}
+//	@PostMapping(value = "/modifierDevis")
+//	public String modifierDevisPost(@Valid @ModelAttribute DevisForm devisForm, BindingResult bindingResult) {
+//		return null;
+//	}
 }

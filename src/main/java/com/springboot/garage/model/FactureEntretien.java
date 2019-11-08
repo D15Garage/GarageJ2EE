@@ -22,10 +22,12 @@ public class FactureEntretien {
 	String numeroFacture;
 	Date dateFacturation;
 	Double total;
+	
+	@Column(name="taux_tva")
 	Double tauxTVA;
 	
 	@OneToOne
-	@JoinColumn(name = "idfiche_entretiens")
+	@JoinColumn(name = "fiche_entretiens_idfiche_entretiens")
 	FicheEntretien fiche;
 	
 	public Integer getId() {
