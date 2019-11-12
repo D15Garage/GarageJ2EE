@@ -17,26 +17,26 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//		auth.inMemoryAuthentication()
-//        .withUser("admin")
-//        .password("admin")
-//        .roles("ADMIN")
-//        .and()
-//        .withUser("commercial")
-//        .password("commercial")
-//        .roles("COMMERCIAL")
-//		.and()
-//        .withUser("magasinier")
-//        .password("magasinier")
-//        .roles("MAGASINIER")
-//        .and()
-//        .withUser("chefatelier")
-//        .password("chefatelier")
-//        .roles("CHEFATELIER")
-//        .and()
-//        .withUser("mecanicien")
-//        .password("mecanicien")
-//        .roles("MECANICIEN");
+		auth.inMemoryAuthentication()
+        .withUser("admin")
+        .password("admin")
+        .roles("ADMIN")
+        .and()
+        .withUser("commercial")
+        .password("commercial")
+        .roles("COMMERCIAL")
+		.and()
+        .withUser("magasinier")
+        .password("magasinier")
+        .roles("MAGASINIER")
+        .and()
+        .withUser("chefatelier")
+        .password("chefatelier")
+        .roles("CHEFATELIER")
+        .and()
+        .withUser("mecanicien")
+        .password("mecanicien")
+        .roles("MECANICIEN");
 		
 		auth.userDetailsService(userDetailsService);
 	}
