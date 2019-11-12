@@ -1,79 +1,53 @@
-//package com.springboot.garage.security.model;
-//
-//import java.util.Collection;
-//
-//import javax.persistence.Entity;
-//import javax.persistence.GeneratedValue;
-//import javax.persistence.GenerationType;
-//import javax.persistence.Id;
-//import javax.persistence.Table;
-//
-//import org.springframework.security.core.GrantedAuthority;
-//import org.springframework.security.core.userdetails.UserDetails;
-//
-//@Entity
-//@Table
-//public class User implements UserDetails {
-//
-//	@Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    private Integer Id;
-//
-//    private String username;
-//
-//    private String password;
-//    
-//	
-//	
-//	public Integer getId() {
-//		return Id;
-//	}
-//	public void setId(Integer id) {
-//		Id = id;
-//	}
-//	public void setUsername(String username) {
-//		this.username = username;
-//	}
-//	public void setPassword(String password) {
-//		this.password = password;
-//	}
-//	
-//	
-//	
-//	@Override
-//	public Collection<? extends GrantedAuthority> getAuthorities() {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//	@Override
-//	public String getPassword() {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//	@Override
-//	public String getUsername() {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//	@Override
-//	public boolean isAccountNonExpired() {
-//		// TODO Auto-generated method stub
-//		return false;
-//	}
-//	@Override
-//	public boolean isAccountNonLocked() {
-//		// TODO Auto-generated method stub
-//		return false;
-//	}
-//	@Override
-//	public boolean isCredentialsNonExpired() {
-//		// TODO Auto-generated method stub
-//		return false;
-//	}
-//	@Override
-//	public boolean isEnabled() {
-//		// TODO Auto-generated method stub
-//		return false;
-//	}
-//
-//}
+package com.springboot.garage.security.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Employe")
+public class User {
+
+	@Id
+	@Column(name="idemploye")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+	@Column(name="numeroEmploye")
+    private String username;
+    
+    @Column(name="motDePasse")
+    private String password;
+    
+    transient private String roles;
+    
+    public String getUsername() {
+    	return username;
+    }
+    public String getPassword() {
+    	return password;
+    }
+	
+	public String getRoles() {
+		return roles;
+	}
+	public void setRoles(String roles) {
+		this.roles = roles;
+	}
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+}
