@@ -22,7 +22,7 @@ public class User {
     @Column(name="motDePasse")
     private String password;
     
-    transient private String roles;
+    transient private String roles = "ROLE";
     
     public String getUsername() {
     	return username;

@@ -11,6 +11,6 @@ spring:
               format_sql: true
 
       datasource:
-           url: jdbc:mysql://localhost:3306/projetgarage1?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC
+           url: jdbc:mysql://localhost:3306/projetgarage1
            username: root
-           password: N1nk451!
+           password: 
