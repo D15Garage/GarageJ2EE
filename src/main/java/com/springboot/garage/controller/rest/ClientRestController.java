@@ -23,7 +23,7 @@ public class ClientRestController {
 	public List<Client> clients() {
 		return clientService.afficherClients();
 	}
-	@PostMapping(value = "/rest/Clients/add")
+	@PostMapping(value = "/rest/Clients")
 	public void addclient(@RequestBody Client client) {
 		clientService.ajouterClient(client);
 	}
