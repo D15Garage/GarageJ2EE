@@ -17,12 +17,18 @@ public class MyUserDetails implements UserDetails {
     
 	private List<GrantedAuthority> authorities;
 
-	public MyUserDetails(User user) {
+	public MyUserDetails(User user, List<String> nomRoles) {
 		this.username = user.getUsername();
 		this.password = user.getPassword();
-		this.authorities = Arrays.stream(user.getRoles().split(","))
+		
+		String r[] = new String[nomRoles.size()];
+		nomRoles.toArray(r);
+		this.authorities = Arrays.stream(r)
 				.map(SimpleGrantedAuthority::new)
 				.collect(Collectors.toList());
+		for (GrantedAuthority g : this.authorities)
+			System.out.println(g);
+		//user.getRoles().split(",")//nomRoles.toArray()
 	}
 
 	@Override
