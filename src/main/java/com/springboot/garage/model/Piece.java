@@ -4,11 +4,18 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.springboot.garage.enums.EtatPiece;
+import com.springboot.garage.enums.Priorite;
+
+import java.sql.Date;
 
 @Entity
 @Table(name="pieces")
@@ -23,6 +30,11 @@ public class Piece {
 	Integer quantite;
 	Double prixUnitaireHt;
 	String description;
+	Date dateSaisieStock;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(columnDefinition = "enum('Disponible', 'Non_disponible')", name = "statut")
+	EtatPiece statut;
 	
 	public Integer getId() {
 		return id;
@@ -54,5 +66,16 @@ public class Piece {
 	public void setPrixUnitaireHt(Double prixUnitaireHt) {
 		this.prixUnitaireHt = prixUnitaireHt;
 	}
-	
+	public Date getDateSaisieStock() {
+		return dateSaisieStock;
+	}
+	public void setDateSaisieStock(Date dateSaisieStock) {
+		this.dateSaisieStock = dateSaisieStock;
+	}
+	public EtatPiece getStatut() {
+		return statut;
+	}
+	public void setStatut(EtatPiece statut) {
+		this.statut = statut;
+	}
 }

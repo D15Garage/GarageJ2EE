@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<div class="navbar navbar-inverse navbar-fixed-top"
+		th:fragment="header-nav">
+		<nav class="navbar navbar-expand-lg bg-white navbar-light fixed-top p-0 d-flex align-items-start">
+            <a class="p-0 m-0 navbar-brand js-scrollTo" th:href="@{/home}"><img th:src="@{/img/logo.jpg}" style="max-width:200px; height:auto;"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <!-- If User.hasRole('ADMIN') -->
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/afficherUtilisateurs}">Utilisateurs</a>
+                </li>
+                <!-- endif -->
+                <!-- If User.hasRole('MAGASINIER') -->
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/afficherPiece}">Stock Pièces</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/afficherCommandePiece}">Commandes Pièces</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/afficherVehicule}">Stock Véhicules</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/afficherCommandeVehicule}">Commandes Véhicules</a>
+                </li>
+                <!-- endif -->
+                <!-- If User.hasRole('CHEF_ATELIER') -->
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/afficherFiche}">Fiches entretien</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/afficherVehicule}">Gestion des tâches</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/afficherCommandeVehicule}">Gestion clients</a>
+                </li>
+                <!-- endif -->
+            </ul>
+            <ul class="navbar-nav d-flex flex-column">
+                <li class="nav-item">
+                    <p class="rounded m-0 py-2 px-5 bg-info text-white d-flex align-items-center">
+                		<i class="fas fa-user-circle fa-2x mr-2"></i>
+                    	<span>Alex Doe</span>
+                    </p>
+                </li>
+                <li class="nav-item">
+                    <a class="rounded m-0 py-2 nav-link bg-light text-dark px-5 d-flex align-items-center" th:href="@{/home}">
+                		<i class="fas fa-home fa-2x mr-2"></i>
+                    	<span>Home</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="rounded m-0 py-2 nav-link bg-danger text-white px-5 d-flex align-items-center" th:href="@{/logout}">
+                		<i class="fas fa-sign-out-alt fa-2x mr-2"></i>
+                    	<span>Logout</span>
+                    </a>
+                </li>
+            </ul>
+            </div>
+        </nav>
+	</div>
+	<div class="navbar navbar-inverse navbar-fixed-top"
+		th:fragment="header">
+	</div>
+</body>

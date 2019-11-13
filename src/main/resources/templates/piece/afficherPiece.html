@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/headerload :: load">
+<title th:text="'Gestion Des Pièces'"></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+</head>
+<body>
+	<div th:replace="fragments/header :: header-nav"></div>
+
+	<div class="container">
+		<table th:unless="${action == 'ModifierPiece'}">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Description</th>
+					<th>Référence</th>
+					<th>Prix Unitaire HT</th>
+					<th>Quantité</th>
+					<th>Statut</th>
+					<th>Dernière saisie</th>
+					<th>Supprimer</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="piece : ${listePieces}">
+					<td><a
+						th:href="@{/afficherModifierPiece/{id}(id=${piece.id})}"
+						th:text="${piece.id}"></a></td>
+					<td th:text="${piece.description}" />
+					<td th:text="${piece.reference}" />
+					<td th:text="${piece.prixUnitaireHt}" />
+					<td th:text="${piece.quantite}" />
+					<td th:text="${piece.statut}" />
+					<td th:text="${piece.dateSaisieStock}" />
+					<td><a th:href="@{/SupprimerPiece/{id}(id=${piece.id})}"
+						th:text="'Supprimer'"></a></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<!-- <h2 th:if="${action == 'ModifierPiece'}">
+			<a th:href="@{/afficherCreerClasse}"
+				th:text="'Formulaire de Mofication'"></a>
+		</h2>
+		<h2 th:unless="${action == 'ModifierClasse'}">Formulaire d'Ajout</h2>
+
+		<div>
+			<form action="#" th:action="@{/{action}(action=${action})}"
+				th:object="${classeform}" method="post">
+				<input type="hidden" th:field="*{id}" th:value="*{id}" /> <label
+					for="nom">Nom</label> <input type="text" th:field="*{nom}" id="nom"
+					placeholder="nom" /> <select th:field="*{prof}">
+					<option th:each="pprof :${listeprof}" th:value="${pprof.id}"
+						th:utext="${pprof.nom}" />
+				</select>
+				<button type="submit">Valider</button>
+			</form>
+		</div> -->
+		<div th:replace="fragments/footer :: footer"></div>
+	</div>
+</body>
+</html>

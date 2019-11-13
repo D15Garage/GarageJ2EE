@@ -18,10 +18,10 @@ public class PieceController {
 	@Autowired
 	IServiceListePieces pieceService;
 	
-	@GetMapping(value = "/afficherPieces")
+	@GetMapping(value = "/afficherPiece")
 	public String afficherPieces(Model model) {
 		model.addAttribute("listePieces", pieceService.afficherPieces());
-		return "afficherPieces";
+		return "piece/afficherPiece";
 	}
 	
 	@GetMapping(value = "/ajouterPiece")
