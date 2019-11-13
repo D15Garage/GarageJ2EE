@@ -19,10 +19,11 @@ public class ClientRestController {
 	@Autowired
 	IServiceListeClients clientService;
 	
-	@GetMapping(value = "/rest/Clients")
+	@GetMapping(name = "/rest/Clients")
 	public List<Client> clients() {
 		return clientService.afficherClients();
 	}
+	
 	@PostMapping(value = "/rest/Clients")
 	public void addclient(@RequestBody Client client) {
 		clientService.ajouterClient(client);
