@@ -55,6 +55,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 //		.antMatchers("/").permitAll()
 //		.and().formLogin();
 		
+		http.authorizeRequests().antMatchers("/rest/**").permitAll();
 		super.configure(http);
 	}
 
