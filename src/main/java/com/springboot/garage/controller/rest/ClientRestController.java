@@ -19,7 +19,7 @@ public class ClientRestController {
 	@Autowired
 	IServiceListeClients clientService;
 	
-	@GetMapping(value = "/rest/Clients")
+	@GetMapping(name = "/rest/Clients")
 	public List<Client> clients() {
 		return clientService.afficherClients();
 	}
