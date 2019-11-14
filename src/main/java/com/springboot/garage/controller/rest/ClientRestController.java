@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,4 +30,9 @@ public class ClientRestController {
 	public void addclient(@RequestBody Client client) {
 		clientService.ajouterClient(client);
 	}
+	@PutMapping(value = "/rest/Clients/{id}")
+    public void modClient(@RequestBody Client client,@PathVariable Integer id) {
+		System.out.println(client.getTelephone());
+        clientService.modifierClient(client);
+    }
 }
