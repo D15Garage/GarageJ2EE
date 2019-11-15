@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/headerload :: load">
+  	<title th:text="'Détail - '"></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+</head>
+<body>
+	<div th:replace="fragments/header :: header"></div>
+
+    <div class="container mt-5 p-5 card border border-solid">
+    	<div class="row  mt-2">
+    		<h2 th:text="${vehicule.marque} + ' ' + ${vehicule.modele}"></h2>
+    	</div>
+    	<div class="row">
+	    <div class="col-6">
+	    	<p>
+	    		<strong>Référence :</strong>
+	    		<span th:text="${vehicule.reference}"></span>
+	    	</p>
+	    	<p>
+	    		<strong>Modèle :</strong>
+	    		<span th:text="${vehicule.modele}"></span>
+	    	</p>
+	    	<p>
+	    		<strong>Marque :</strong>
+	    		<span th:text="${vehicule.marque}"></span>
+	    	</p>
+	    	<p>
+	    		<strong>Couleur :</strong>
+	    		<span th:text="${vehicule.couleur}"></span>
+	    	</p>
+	    	<p>
+	    		<strong>Année :</strong>
+	    		<span th:text="${vehicule.annee}"></span>
+	    	</p>
+	    	<p>
+	    		<strong>Prix Unitaire (HT) :</strong>
+	    		<span th:text="${vehicule.prixUnitaireHt}"></span>
+	    		<span th:text="€"></span>
+	    	</p>
+	    	<p>
+	    		<strong>Quantité en stock :</strong>
+	    		<span th:text="${vehicule.quantite}"></span>
+	    	</p>
+	    </div>
+	    <div class="col-6">
+	    	<a class="btn btn-warning" id="modify">Modifier</a>
+	    	<a class="btn btn-danger" th:href="@{/afficherVehicule}">Retour</a>
+	    </div>
+	    </div>
+		  
+		<div id="formModify">
+			<form class="form" action="#" th:action="@{/modifierVehicule}" 
+			  th:object="${vehiculeForm}"   method="post">
+			  <div class="form-group">
+			  		<input type="hidden" th:field="*{id}" th:value="*{id}"/>
+			    	<label for="reference">Référence</label>
+			   		<input class="form-control" type="text" th:field="*{reference}" id="reference"/>
+			   		<label for="marque">Marque</label>
+			   		<input class="form-control" type="text" th:field="*{marque}" id="marque"/>
+			   		<label for="modele">Modèle</label>
+			   		<input class="form-control" type="text" th:field="*{modele}" id="modele"/>
+			   		<label for="couleur">Couleur</label>
+			   		<input class="form-control" type="text" th:field="*{couleur}" id="couleur"/>
+			   		<label for="annee">Année</label>
+			   		<input class="form-control" type="text" th:field="*{annee}" id="annee"/>
+			   		<label for="prixUnitaireHt">Prix Unitaire HT</label>
+			   		<input class="form-control" type="text" th:field="*{prixUnitaireHt}" id="prixUnitaireHt"/>
+			   		<label for="quantite">Quantité</label>
+			   		<input class="form-control" type="text" th:field="*{quantite}" id="quantite"/>
+			  </div>
+			  <div class="row flex-row-reverse">
+				  <a class="btn btn-warning mx-2" id="cancelModify">Annuler</a>
+				  <button class="btn btn-success mx-2" type="submit">Valider</button>
+			  </div>
+		</form>
+		</div>
+		
+    </div>
+ 
+ 
+<!--<div>
+	  <form action="#" th:action="@{/{action}(action=${action})}" 
+	  th:object="${profform}"   method="post">
+	  		<input type="hidden" th:field="*{id}" th:value="*{id}"/>
+	    	<label for="nom">Nom</label>
+	   		<input type="text" th:field="*{nom}" id="nom" placeholder="nom"/>
+	   		<label for="prenom">Prénom</label>
+	   		<input type="text" th:field="*{prenom}" id="prenom" 
+	   		placeholder="prénom"/>
+	   		<label for="date">Date de Naissance</label>
+	   		<input type="date" th:field="*{datenaissance}" id="date" 
+	   		placeholder="Date de Naissance"/>
+	   		<label for="adresse">Adresse</label>
+	   		<input type="text" th:field="*{adresse}" id="adresse" 
+	   		placeholder="adresse"/>
+	   		<label for="genre">Sexe</label>
+	   		<input type="text" th:field="*{sexe}" id="genre" 
+	   		placeholder="sexe (HOMME ou FEMME)"/>
+	   <button  type="submit">Valider</button>
+	</form>
+ </div> -->
+ <div th:replace="fragments/footer :: footer"></div>
+ <script>
+ 	var modify = document.getElementById("modify");
+ 	
+ 	var formModify = document.getElementById("formModify");
+ 	formModify.style.display = "none";
+ 	
+ 	var cancelModify = document.getElementById("cancelModify");
+ 	
+ 	modify.addEventListener("click", function(){
+ 		formModify.style.display = "flex";
+ 		modify.style.display = "none";
+ 	});
+ 	
+ 	cancelModify.addEventListener("click", function(){
+ 		formModify.style.display = "none";
+ 		modify.style.display = "inline";
+ 	});
+
+ </script>
+    </body>
+</html>

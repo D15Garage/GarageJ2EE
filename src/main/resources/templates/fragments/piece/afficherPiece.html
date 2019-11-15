@@ -34,7 +34,7 @@
 					<td th:text="${piece.prixUnitaireHt}" />
 					<td th:text="${piece.quantite}" />
 					<td th:text="${piece.statut}" />
-					<td th:text="${#dates.format(piece.dateSaisieStock, 'dd-MMM-yyyy')}" />
+					<td th:text="${piece.dateSaisieStock}" />
 					<td>
 						<a class="btn btn-danger" th:href="@{/supprimerPiece/{id}(id=${piece.id})}" th:text="'Vider stock'"></a>
 						<a class="btn btn-info" th:href="@{/detailPiece/{id}(id=${piece.id})}" th:text="'Détails'"></a>

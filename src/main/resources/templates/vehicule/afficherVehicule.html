@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/headerload :: load">
@@ -9,41 +10,45 @@
 	<div th:replace="fragments/header :: header"></div>
 
 	<div class="container mt-5 pt-5">
-	<h1 class="mt-2">Stock de pièces</h1>
-		<a class="btn btn-success" th:href="@{/ajouterPiece}">Nouvelle Pièce</a>
-		<table class="table table-striped" th:unless="${action == 'ModifierPiece'}">
+	<h1 class="mt-2">Stock de véhicules</h1>
+		<a class="btn btn-success" th:href="@{/ajouterVehicule}">Nouveau Véhicule</a>
+		<table class="table table-striped" th:unless="${action == 'ModifierVehicule'}">
 			<thead>
 				<tr>
 					<th>Id</th>
-					<th>Description</th>
+					<th>Marque</th>
+					<th>Modèle</th>
+					<th>Année</th>
+					<th>Couleur</th>
 					<th>Référence</th>
 					<th>Prix Unitaire HT</th>
 					<th>Quantité</th>
-					<th>Statut</th>
 					<th>Dernière saisie</th>
 					<th>Action</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="piece : ${listePieces}">
+				<tr th:each="vehicule : ${listeVehicules}">
 					<td><a
-						th:href="@{/afficherModifierPiece/{id}(id=${piece.id})}"
-						th:text="${piece.id}"></a></td>
-					<td th:text="${piece.description}" />
-					<td th:text="${piece.reference}" />
-					<td th:text="${piece.prixUnitaireHt}" />
-					<td th:text="${piece.quantite}" />
-					<td th:text="${piece.statut}" />
-					<td th:text="${#dates.format(piece.dateSaisieStock, 'dd-MMM-yyyy')}" />
+						th:href="@{/afficherModifierVehicule/{id}(id=${vehicule.id})}"
+						th:text="${vehicule.id}"></a></td>
+					<td th:text="${vehicule.marque}" />
+					<td th:text="${vehicule.modele}" />
+					<td th:text="${vehicule.annee}" />
+					<td th:text="${vehicule.couleur}" />
+					<td th:text="${vehicule.reference}" />
+					<td th:text="${vehicule.prixUnitaireHt}" />
+					<td th:text="${vehicule.quantite}" />
+					<td th:text="${#dates.format(vehicule.dateSaisieStock, 'dd-MMM-yyyy')}" />
 					<td>
-						<a class="btn btn-danger" th:href="@{/supprimerPiece/{id}(id=${piece.id})}" th:text="'Vider stock'"></a>
-						<a class="btn btn-info" th:href="@{/detailPiece/{id}(id=${piece.id})}" th:text="'Détails'"></a>
+						<a class="btn btn-danger" th:href="@{/supprimerVehicule/{id}(id=${vehicule.id})}" th:text="'Vider stock'"></a>
+						<a class="btn btn-info" th:href="@{/detailVehicule/{id}(id=${vehicule.id})}" th:text="'Détails'"></a>
 					</td>
 				</tr>
 			</tbody>
 		</table>
 
-		<!-- <h2 th:if="${action == 'ModifierPiece'}">
+		<!-- <h2 th:if="${action == 'ModifierVehicule'}">
 			<a th:href="@{/afficherCreerClasse}"
 				th:text="'Formulaire de Mofication'"></a>
 		</h2>

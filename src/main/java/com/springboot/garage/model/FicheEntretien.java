@@ -32,6 +32,7 @@ public class FicheEntretien {
 	@Enumerated(EnumType.STRING)
 	@Column(columnDefinition = "enum('Refusee', 'En_attente', 'En_cours', 'Cloturee')", name = "etat")
 	EtatFicheEntretien etat = EtatFicheEntretien.En_attente;
+
 	
 	@Enumerated(EnumType.STRING)
 	@Column(columnDefinition = "enum('Non_prioritaire', 'Normal', 'Urgent', 'Tres_urgent')", name = "niveau_de_priorite")

@@ -1,5 +1,7 @@
 package com.springboot.garage.model;
 
+import java.util.Date;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,6 +18,7 @@ public class Vehicule {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Integer id;
 	
+	Date dateSaisieStock;
 	String reference;
 	String marque;
 	String modele;
@@ -24,8 +27,12 @@ public class Vehicule {
 	Integer quantite;
 	Double prixUnitaireHt;
 	
-	
-	
+	public Date getDateSaisieStock() {
+		return dateSaisieStock;
+	}
+	public void setDateSaisieStock(Date dateSaisieStock) {
+		this.dateSaisieStock = dateSaisieStock;
+	}
 	public Integer getId() {
 		return id;
 	}

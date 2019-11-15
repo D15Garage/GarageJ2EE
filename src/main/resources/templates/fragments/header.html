@@ -70,5 +70,37 @@
 	</div>
 	<div class="navbar navbar-inverse navbar-fixed-top"
 		th:fragment="header">
+		<div class="navbar navbar-inverse navbar-fixed-top"
+			th:fragment="header-nav">
+			<nav class="navbar navbar-expand-lg bg-white navbar-light fixed-top p-0 d-flex align-items-start">
+	            <a class="p-0 m-0 navbar-brand js-scrollTo" th:href="@{/home}"><img th:src="@{/img/logo.jpg}" style="max-width:200px; height:auto;"></a>
+	            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+	            aria-expanded="false" aria-label="Toggle navigation">
+	                <span class="navbar-toggler-icon"></span>
+	            </button>
+	            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	            <ul class="navbar-nav d-flex flex-column ml-auto">
+	                <li class="nav-item">
+	                    <p class="rounded m-0 py-2 px-5 bg-info text-white d-flex align-items-center">
+	                		<i class="fas fa-user-circle fa-2x mr-2"></i>
+	                    	<span>Alex Doe</span>
+	                    </p>
+	                </li>
+	                <li class="nav-item">
+	                    <a class="rounded m-0 py-2 nav-link bg-danger text-white px-5 d-flex align-items-center" th:href="@{/logout}">
+	                		<i class="fas fa-sign-out-alt fa-2x mr-2"></i>
+	                    	<span>Logout</span>
+	                    </a>
+	                </li>
+	                <li class="nav-item">
+	                    <a class="rounded m-0 py-2 nav-link bg-light text-dark px-5 d-flex align-items-center" th:href="@{/}">
+	                		<i class="fas fa-home fa-2x mr-2"></i>
+	                    	<span>Home</span>
+	                    </a>
+	                </li>
+	            </ul>
+	            </div>
+	        </nav>
+		</div>
 	</div>
 </body>
