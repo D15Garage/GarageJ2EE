@@ -1,5 +1,6 @@
 package com.springboot.garage.security;
 
+import org.aspectj.weaver.ast.And;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -55,8 +56,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 //		.antMatchers("/").permitAll()
 //		.and().formLogin();
 
-		super.configure(http);
-		http.authorizeRequests().antMatchers("/rest/**").permitAll();		
+		http.authorizeRequests()
+		.antMatchers("/Pieces").hasAnyRole("magasinier", "chefatelier")
+		.antMatchers("/Pieces/**").hasAnyRole("magasinier", "chefatelier")
+		.antMatchers("/rest/**").permitAll()
+		.and().formLogin();
 		http.cors().and().csrf().disable().authorizeRequests().antMatchers("/rest/**").permitAll();
 
 	}
