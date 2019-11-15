@@ -11,23 +11,30 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 public class MyUserDetails implements UserDetails {
 
-	private String username;
-	private String password;
+    private String username;
+
+    private String password;
+    
 	private List<GrantedAuthority> authorities;
 
-	public MyUserDetails(User user) {
-		// TODO Auto-generated constructor stub
+	public MyUserDetails(User user, List<String> nomRoles) {
 		this.username = user.getUsername();
 		this.password = user.getPassword();
-		this.authorities = Arrays.stream(user.getRoles().split(","))
+		
+		String r[] = new String[nomRoles.size()];
+		nomRoles.toArray(r);
+		this.authorities = Arrays.stream(r)
 				.map(SimpleGrantedAuthority::new)
 				.collect(Collectors.toList());
+		for (GrantedAuthority g : this.authorities)
+			System.out.println(g);
+		//user.getRoles().split(",")//nomRoles.toArray()
 	}
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// TODO Auto-generated method stub
-		return null;
+		return authorities;
 	}
 
 	@Override
@@ -45,19 +52,19 @@ public class MyUserDetails implements UserDetails {
 	@Override
 	public boolean isAccountNonExpired() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isAccountNonLocked() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isCredentialsNonExpired() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override

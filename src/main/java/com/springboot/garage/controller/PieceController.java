@@ -26,19 +26,19 @@ public class PieceController {
 	@Autowired
 	IServiceListePieces pieceService;
 	
-	@GetMapping(value = "/afficherPiece")
+	@GetMapping(value = "/Pieces")
 	public String afficherPieces(Model model) {
 		model.addAttribute("listePieces", pieceService.afficherPieces());
 		return "piece/afficherPiece";
 	}
 	
-	@GetMapping(value = "/ajouterPiece")
+	@GetMapping(value = "/Pieces/add")
 	public String ajouterPieceGet(Model model) {
 		model.addAttribute("pieceForm", new PieceForm());
 		return "piece/ajouterPiece";
 	}
 	
-	@GetMapping(value = "/detailPiece/{id}")
+	@GetMapping(value = "/Pieces/{id}")
 	public String detailPiece(@PathVariable final Integer id, Model model) {
 		Piece piece = pieceService.trouverPiece(id);
 		model.addAttribute("piece", piece);
@@ -57,7 +57,7 @@ public class PieceController {
 	
 	
 	
-	@PostMapping(value = "/ajouterPiece")
+	@PostMapping(value = "/Pieces/add")
 	public String ajouterPiecePost(@ModelAttribute PieceForm pieceForm, BindingResult presult, Model model) {
 		if(!presult.hasErrors()) {
 			Piece piece = new Piece();
@@ -77,7 +77,7 @@ public class PieceController {
 		return "piece/afficherPiece";
 	}
 
-	@PostMapping("/modifierPiece")
+	@PostMapping("/Piece")
 	public String modifierPiece( 
 			@Valid @ModelAttribute PieceForm pieceForm,
 			BindingResult presult,Model model)

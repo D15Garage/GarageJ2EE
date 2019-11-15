@@ -11,7 +11,7 @@
 	<div class="container mt-5 pt-5">
 	<h1 class="mt-2">Ajouter une pièce</h1>
 	<div>
-		  <form class="form" action="#" th:action="@{/ajouterPiece}" 
+		  <form class="form" action="#" th:action="@{/Pieces/add}" 
 		  th:object="${pieceForm}"   method="post">
 		  <div class="form-group">
 		    	<label for="reference">Référence</label>
@@ -27,7 +27,7 @@
 		   		placeholder="170"/>
 		  </div>
 		  <div class="row flex-row-reverse">
-			  <a class="btn btn-warning mx-2" th:href="@{/afficherPiece}">Annuler</a>
+			  <a class="btn btn-warning mx-2" th:href="@{/Pieces}">Annuler</a>
 			  <button class="btn btn-success mx-2" type="submit">Valider</button>
 		  </div>
 		</form>

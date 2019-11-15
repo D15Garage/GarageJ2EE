@@ -34,12 +34,12 @@
 	    </div>
 	    <div class="col-6">
 	    	<a class="btn btn-warning" id="modify">Modifier</a>
-	    	<a class="btn btn-danger" th:href="@{/afficherPiece}">Retour</a>
+	    	<a class="btn btn-danger" th:href="@{/Pieces}">Retour</a>
 	    </div>
 	    </div>
 		  
 		<div id="formModify">
-			<form class="form" action="#" th:action="@{/modifierPiece}" 
+			<form class="form" action="#" th:action="@{/Pieces}" 
 			  th:object="${pieceForm}"   method="post">
 			  <div class="form-group">
 			  		<input type="hidden" th:field="*{id}" th:value="*{id}"/>
