@@ -28,7 +28,7 @@ public class Devis {
 	Date dateCreation;
 	
 	@Enumerated(EnumType.STRING)
-	@Column(columnDefinition = "enum('Valide', 'Annule', 'En attente')", name = "etat")
+	@Column(columnDefinition = "enum('Valide', 'Annule', 'En_attente')", name = "etat")
 	EtatDevis etat;
 	
 	Integer quantite;

@@ -31,11 +31,11 @@ public class Tache {
 	Entretien typeEntretien;
 	
 	@Enumerated(EnumType.STRING)
-	@Column(columnDefinition = "enum('A realiser', 'En cours', 'Suspendue', 'Terminee')", name = "etat")
+	@Column(columnDefinition = "enum('A_realiser', 'En_cours', 'Suspendue', 'Terminee')", name = "etat")
 	EtatTache etat = EtatTache.A_realiser;
 	
 	@Enumerated(EnumType.STRING)
-	@Column(columnDefinition = "enum('Non prioritaire', 'Normal', 'Urgent', 'Tres urgent')", name = "niveau_de_priorite")
+	@Column(columnDefinition = "enum('Non_prioritaire', 'Normal', 'Urgent', 'Tres_urgent')", name = "niveau_de_priorite")
 	Priorite priorite = Priorite.Normal;
 
 	Integer quantitePieces;

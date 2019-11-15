@@ -15,7 +15,7 @@ import javax.persistence.Table;
 import com.springboot.garage.enums.EtatPiece;
 import com.springboot.garage.enums.Priorite;
 
-import java.sql.Date;
+import java.util.Date;
 
 @Entity
 @Table(name="pieces")
